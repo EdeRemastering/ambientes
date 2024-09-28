@@ -11,7 +11,7 @@
 @section('content')
     <div class="principal-content">
         <div class="opcion">
-            Bienvenido
+            Bienvenido a AmbiGestion
         </div>
     </div>
 @endsection
