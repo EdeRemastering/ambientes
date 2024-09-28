@@ -145,7 +145,7 @@
 
         <div class="card">
             <h2>Escalable y Personalizable</h2>
-            <p>AmbiGestión se adapta a cualquier tipo de institución, desde academias pequeñas hasta grandes universidades. Su estructura flexible te permite crecer y personalizar la plataforma según tus necesidades.</p>
+            <p>AmbiGestión es útil y adaptable para todos los SENAS e inlcuso otro tipo de instituciones si así se requiere.</p>
         </div>
     </div>
 
