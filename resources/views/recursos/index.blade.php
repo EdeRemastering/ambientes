@@ -1,23 +1,10 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-     .create {
-            background-color: #203a43;
-            border: 2px solid #4CAF50;
-        }
+@section('titulo', 'Recursos')
 
-        .create:hover {
-            background-color: #2c5364;
-        }
-</style>
-@endsection
-
-@section('title', 'Recursos')
-
-@section('content')
+@section('contenido')
 <!-- Enlace para crear un nuevo recurso -->
-<a href="{{ route('recursos.create') }}" class="btn create btn-success mb-3">Crear Recurso</a>
+<a href="{{ route('recursos.create') }}" class="btn boton-crear btn-success mb-3">Crear Recurso</a>
 
 <!-- Tabla de recursos -->
 <table id="recursoTable" class="table table-striped" style="width:100%">

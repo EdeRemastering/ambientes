@@ -1,22 +1,9 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-     .create {
-            background-color: #203a43;
-            border: 2px solid #4CAF50;
-        }
+@section('titulo', 'Usuarios')
 
-        .create:hover {
-            background-color: #2c5364;
-        }
-</style>
-@endsection
-
-@section('title', 'Usuarios')
-
-@section('content')
-<a href="{{ route('usuarios.create') }}" class="btn create btn-success mb-3">Crear Nuevo Usuario</a>
+@section('contenido')
+<a href="{{ route('usuarios.create') }}" class="btn boton-crear btn-success mb-3">Crear Nuevo Usuario</a>
 
 <table id="userTable" class="table table-striped" style="width:100%">
     <thead>

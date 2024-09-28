@@ -1,6 +1,6 @@
 @extends('layouts.register')
 
-@section('styles')
+@section('estilos')
     <style>
          body {
             font-family: 'Poppins', sans-serif;

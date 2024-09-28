@@ -1,23 +1,10 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-     .create {
-            background-color: #203a43;
-            border: 2px solid #4CAF50;
-        }
+@section('titulo', 'Ambientes')
 
-        .create:hover {
-            background-color: #2c5364;
-        }
-</style>
-@endsection
-
-@section('title', 'Ambientes')
-
-@section('content')
+@section('contenido')
 <!-- Enlace para crear un nuevo ambiente -->
-<a href="{{ route('ambientes.create') }}" class="btn create btn-success mb-3">Crear Ambiente</a>
+<a href="{{ route('ambientes.create') }}" class="btn boton-crear btn-success mb-3">Crear Ambiente</a>
 
 <!-- Tabla de ambientes -->
 <table id="ambienteTable" class="table table-striped " style="width:100%">

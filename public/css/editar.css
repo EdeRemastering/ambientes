@@ -1,0 +1,102 @@
+/* Estilos generales para los formularios */
+.contenedor-principal {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+}
+
+.titulo-contenedor h1 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenedor-secundario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    width: fit-content;
+}
+
+/* Estructura del formulario en un grid de 2 columnas */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas de igual tamaño */
+    gap: 20px; /* Espacio entre filas y columnas */
+    width: 100%;
+}
+
+label {
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+input, textarea, select, .btn-primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Botón */
+.btn-primary {
+    background-color: #4CAF50;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    font-weight: 600;
+    width: fit-content;
+    grid-column: span 2; /* Hace que el botón ocupe ambas columnas */
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}
+
+/* Estilos personalizados para el select */
+select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDI0IDEwIiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMmwxMSAxMUwyMyAybC0yLTEtMTEgMTEtMTEtMTEtMTF6Ii8+PC9zdmc+');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+select option {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #000;
+}
+
+/* Ajustar campos con grid-span para textos más largos */
+textarea {
+    grid-column: span 2; /* Hace que el textarea ocupe ambas columnas */
+}

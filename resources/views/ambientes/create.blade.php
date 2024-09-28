@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Crear Ambiente')
+@section('estilos')
+<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
+@endsection
+@section('titulo', 'Crear Ambiente')
 
-@section('content')
+@section('contenido')
+<a href="{{ route('ambientes.index') }}" class="btn btn-primary mb-3">Volver a Ambientes</a>
+
     <div class="container">
         <h1>Crear Nuevo Ambiente</h1>
 

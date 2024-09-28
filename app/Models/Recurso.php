@@ -11,7 +11,7 @@ class Recurso extends Model
 
     protected $table = 'recurso';
     protected $primaryKey = 'id_recurso';
-    public $timestamp = 'false';
+    public $timestamps = false;
 
     protected $fillable = ['id_ambiente', 'descripcion', 'estado'];
 }

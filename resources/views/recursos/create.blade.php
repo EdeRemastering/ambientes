@@ -1,0 +1,40 @@
+@extends('layouts.app')
+@section('estilos')
+<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
+@endsection
+@section('titulo', 'Crear Recurso')
+
+@section('contenido')
+<a href="{{ route(name: 'recursos.index') }}" class="btn btn-primary mb-3">Volver a Recursos</a>
+
+<div class="contenedor-principal">
+    <div class="contenedor-secundario">
+        <div class="titulo-contenedor">
+            <h1>Crear Recurso</h1>
+        </div>
+        <form action="{{ route('recursos.store') }}" method="POST">
+            @csrf
+
+            <div class="form-group mb-3">
+                <label for="id_ambiente">ID Ambiente:</label>
+                <input type="number" id="id_ambiente" name="id_ambiente" class="form-control" placeholder="Ingrese el ID del ambiente" required>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" rows="4" placeholder="Descripción del recurso" required></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="estado">Estado:</label>
+                <select id="estado" name="estado" class="form-control" required>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Crear Recurso</button>
+        </form>
+    </div>
+</div>
+@endsection

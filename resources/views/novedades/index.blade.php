@@ -1,23 +1,10 @@
 @extends('layouts.app')
 
-@section('styles')
-<style>
-     .create {
-            background-color: #203a43;
-            border: 2px solid #4CAF50;
-        }
+@section('titulo', 'Novedades')
 
-        .create:hover {
-            background-color: #2c5364;
-        }
-</style>
-@endsection
-
-@section('title', 'Novedades')
-
-@section('content')
+@section('contenido')
 <!-- Enlace para crear una nueva novedad -->
-<a href="{{ route('novedades.create') }}" class="btn create btn-success mb-3">Crear Novedad</a>
+<a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success mb-3">Crear Novedad</a>
 
 <!-- Tabla de novedades -->
 <table id="novedadTable" class="table table-striped" style="width:100%">
