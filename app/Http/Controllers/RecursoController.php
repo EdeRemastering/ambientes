@@ -32,7 +32,7 @@ class RecursoController extends Controller
         $request->validate([
             'id_ambiente' => 'required|integer',
             'descripcion' => 'required|string',
-            'estado' => 'required|in:activo,inactivo'
+            'estado' => 'required|integer'
         ]);
 
         Recurso::create($request->all());

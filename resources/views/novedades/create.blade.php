@@ -23,8 +23,8 @@
             <div class="form-group mb-3">
                 <label for="estado_novedad">Estado Novedad:</label>
                 <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                    <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
                 </select>
             </div>
 

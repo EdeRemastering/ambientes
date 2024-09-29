@@ -32,8 +32,8 @@ class NovedadController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'estado_novedad' => 'required|in:activo,inactivo',
-            'fecha_solucion' => 'nullable|date'
+            'estado_novedad' => 'required|integer',
+            'fecha_solucion' => 'nullable|datetime'
         ]);
 
         Novedad::create($request->all());
