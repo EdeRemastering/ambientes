@@ -129,26 +129,3 @@ thead {
 .barra-navegacion.minimizada {
     margin-left: 80px;
 }
-
-#cerrar-sesion {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-}
-
-#cerrar-sesion:hover {
-    background-color: #45a049;
-}
-
-.boton-crear .btn{
-    background-color: #203a43;
-    border: 2px solid #4CAF50;
-}
-
-.boton-crear:hover {
-    background-color: #2c5364;
-}

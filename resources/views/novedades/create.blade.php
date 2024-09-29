@@ -23,14 +23,9 @@
             <div class="form-group mb-3">
                 <label for="estado_novedad">Estado Novedad:</label>
                 <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                    <option value="activo">Activo</option>
-                    <option value="inactivo">Inactivo</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
                 </select>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="fecha_solucion">Fecha Solución:</label>
-                <input type="date" id="fecha_solucion" name="fecha_solucion" class="form-control">
             </div>
 
             <button type="submit" class="btn btn-primary">Crear Novedad</button>

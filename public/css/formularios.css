@@ -10,12 +10,6 @@
   
 }
 
-.titulo-contenedor h1 {
-    color: #fff;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 /* Contenedor que ajusta el formulario a diferentes pantallas */
 .contenedor-secundario {
     display: flex;
@@ -89,6 +83,7 @@ textarea::placeholder {
     background-color: #45a049;
 }
 
+
 /* Estilo personalizado para el select */
 select {
     appearance: none;
@@ -141,4 +136,14 @@ form > * {
     display: block;
     height: 0;
     flex-shrink: 0;
+}
+
+
+a .btn{
+    background-color: #203a43;
+    border: 2px solid #4CAF50;
+}
+
+a:hover {
+    background-color: #2c5364;
 }
