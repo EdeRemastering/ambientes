@@ -39,8 +39,15 @@ class AmbienteController extends Controller
             'red_de_conocimiento' => 'required'
         ]);
 
-        Ambiente::create($request->all());
-        return redirect()->route('ambientes.index')->with('succes', 'Ambiente creado exitosamente.');
+        try {
+            Ambiente::create($request->all());
+            return redirect()->route('ambientes.index')->with('succes', 'Ambiente creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al crear el ambiente.' . $e->getMessage()) ;
+        }
+
+        
+      
     }
 
     /**
@@ -74,9 +81,14 @@ class AmbienteController extends Controller
             'estado',
             'red_de_conocimiento'
         ]);
-        $ambiente = Ambiente::findOrFail($id);
-        $ambiente->update($request->all());
-        return redirect()->route('ambientes.index')->with('succes', 'Ambiente actualizado exitosamente.');
+
+        try {
+            $ambiente = Ambiente::findOrFail($id);
+            $ambiente->update($request->all());
+            return redirect()->route('ambientes.index')->with('succes', 'Ambiente actualizado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al actualizar el ambiente.' . $e->getMessage());
+        }
     }
 
     /**
@@ -84,8 +96,14 @@ class AmbienteController extends Controller
      */
     public function destroy(string $id)
     {
-        $ambiente = Ambiente::findOrFail($id);
-        $ambiente->delete();
-        return redirect()->route('ambientes.index')->with('success', 'Ambiente eliminado exitosamente. ');
+
+        try {
+            $ambiente = Ambiente::findOrFail($id);
+            $ambiente->delete();
+            return redirect()->route('ambientes.index')->with('success', 'Ambiente eliminado exitosamente. ');
+      
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al eliminar el ambiente.' . $e->getMessage());
+        }
     }
 }

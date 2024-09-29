@@ -24,8 +24,8 @@
             <div class="form-group mb-3">
                 <label for="estado_novedad">Estado Novedad:</label>
                 <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                    <option value="activo" {{ $novedad->estado_novedad == 'activo' ? 'selected' : '' }}>Activo</option>
-                    <option value="inactivo" {{ $novedad->estado_novedad == 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+                    <option value="1" {{ $novedad->estado_novedad == '1' ? 'selected' : '' }}>Activo</option>
+                    <option value="2" {{ $novedad->estado_novedad == '2' ? 'selected' : '' }}>Inactivo</option>
                 </select>
             </div>
 

@@ -35,8 +35,13 @@ class RecursoController extends Controller
             'estado' => 'required|integer'
         ]);
 
-        Recurso::create($request->all());
-        return redirect()->route('recursos.index')->with('success', 'Recurso creado exitosamente.');
+        try {
+            Recurso::create($request->all());
+            return redirect()->route('recursos.index')->with('success', 'Recurso creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al crear el recurso.' . $e->getMessage());
+        }
+       
     }
 
     /**
@@ -64,12 +69,18 @@ class RecursoController extends Controller
         $request->validate([
             'id_ambiente' => 'required|integer',
             'descripcion' => 'required|string',
-            'estado' => 'required|in:activo,inactivo'
+            'estado' => 'required|integer'
         ]);
 
         $recurso = Recurso::findOrFail($id);
-        $recurso->update($request->all());
-        return redirect()->route('recursos.index')->with('success', 'Recurso actualizado exitosamente.');
+
+        try {
+            $recurso->update($request->all());
+            return redirect()->route('recursos.index')->with('success', 'Recurso actualizado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al actualizar el recurso.' . $e->getMessage());
+        }
+     
     }
 
     /**
@@ -78,7 +89,12 @@ class RecursoController extends Controller
     public function destroy($id)
     {
         $recurso = Recurso::findOrFail($id);
-        $recurso->delete();
-        return redirect()->route('recursos.index')->with('success', 'Recurso eliminado exitosamente.');
+        try {
+            $recurso->delete();
+            return redirect()->route('recursos.index')->with('success', 'Recurso eliminado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al eliminar el recurso.' . $e->getMessage());
+        }
+     
     }
 }

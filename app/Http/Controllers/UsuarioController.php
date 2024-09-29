@@ -39,13 +39,19 @@ public function index(Request $request)
             'password' => 'required|string|min:6|confirmed',
         ]);
 
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        try {
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+    
+            return redirect()->route('usuarios.index')->with('success', 'Usuario creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al crear el usuario.' . $e->getMessage());
+        }
 
-        return redirect()->route('usuarios.index')->with('success', 'Usuario creado exitosamente.');
+        
     }
 
     // Mostrar el formulario para editar un usuario existente
@@ -58,31 +64,45 @@ public function index(Request $request)
     // Actualizar un usuario existente en la base de datos
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'password' => 'nullable|string|min:6|confirmed',
-        ]);
+     
 
-        $user = User::findOrFail($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
+        try {
 
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
+            $request->validate([
+                'name' => 'required|string|max:255',
+                'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+                'password' => 'nullable|string|min:6|confirmed',
+            ]);
+            
+            $user = User::findOrFail($id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+    
+            if ($request->filled('password')) {
+                $user->password = Hash::make($request->password);
+            }
+    
+            $user->save();
+    
+            return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al actualizar el usuario' . $e->getMessage());
         }
-
-        $user->save();
-
-        return redirect()->route('usuarios.index')->with('success', 'Usuario actualizado exitosamente.');
+    
     }
 
      // Método para eliminar un usuario
      public function destroy($id)
      {
-         $user = User::findOrFail($id); // Encontrar al usuario por ID o mostrar un error 404 si no se encuentra
-         $user->delete(); // Eliminar el usuario
- 
-         return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado con éxito.');
+
+        try {
+            $user = User::findOrFail($id); // Encontrar al usuario por ID o mostrar un error 404 si no se encuentra
+            $user->delete(); // Eliminar el usuario
+    
+            return redirect()->route('usuarios.index')->with('success', 'Usuario eliminado con éxito.');
+        } catch (\Exception $e) {
+            return redirect()->route('usuarios.index')->with('error', 'Error al eliminar el usuario.' . $e->getMessage());
+        }
+      
      } 
 }

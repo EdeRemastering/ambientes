@@ -19,6 +19,14 @@
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
+
+    <!-- Estilos para SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="{{ asset('js/app.js') }}"></script>
+
+
     <!-- Sección para incluir estilos adicionales en vistas específicas -->
     @yield('estilos')
 </head>
@@ -71,6 +79,17 @@
 <section class="contenido" id="contenido">
     <div class="contenido-principal">
        @yield('contenido')
+       @if(session('success'))
+            <script>mensajeDeExito("{{session('success')}}");</script>
+        @endif
+
+        @if(session('error'))
+            <script>mensajeDeError("{{ session('error') }}");</script>
+        @endif
+
+        @if(session('warning'))
+            <script>mensajeDeAdvertencia("{{ session('warning') }}");</script>
+        @endif 
     </div>
 </section>
 
@@ -124,6 +143,8 @@
         window.history.back();
     }
 </script>
+
+
 
 
 <!-- Sección para incluir scripts adicionales en vistas específicas -->

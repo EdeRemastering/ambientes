@@ -23,8 +23,8 @@
             <div class="form-group mb-3">
                 <label for="estado">Estado:</label>
                 <select id="estado" name="estado" class="form-control" required>
-                    <option value="activo" {{ $recurso->estado == 'activo' ? 'selected' : '' }}>Activo</option>
-                    <option value="inactivo" {{ $recurso->estado == 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+                    <option value="1" {{ $recurso->estado == 'activo' ? 'selected' : '' }}>Activo</option>
+                    <option value="2" {{ $recurso->estado == 'inactivo' ? 'selected' : '' }}>Inactivo</option>
                 </select>
             </div>
 
