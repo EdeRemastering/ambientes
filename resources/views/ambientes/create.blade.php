@@ -1,16 +1,12 @@
 @extends('layouts.app')
 
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
 @section('titulo', 'Crear Ambiente')
 
 @section('contenido')
-<a href="{{ route('ambientes.index') }}" class="btn btn-primary mb-3">Volver a Ambientes</a>
 
-    <div class="container">
-        <h1>Crear Nuevo Ambiente</h1>
-
+<!-- Usar la clase "contenedor-principal" y "contenedor-secundario" -->
+<div class="contenedor-principal">
+    <div class="contenedor-secundario">
         <!-- Muestra errores de validación si existen -->
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -47,30 +43,30 @@
 
             <div class="form-group">
                 <label for="tipo">Tipo:</label>
-                 <select name="tipo" id="tipo">
+                <select name="tipo" id="tipo">
                     <option value="1">Tecnología</option>
                     <option value="2">Carnicería</option>
-                 </select>
-              
+                </select>
             </div>
 
             <div class="form-group">
                 <label for="estado">Estado:</label>
                 <select name="estado" id="estado" class="form-control">
-                    <option value="1" {{ old('estado') == '1' ? 'selected' : 'Activo' }}>Activo</option>
-                    <option value="2" {{ old('estado') == '2' ? 'selected' : 'Inactivo' }}>Inactivo</option>
+                    <option value="1" {{ old('estado') == '1' ? 'selected' : '' }}>Activo</option>
+                    <option value="2" {{ old('estado') == '2' ? 'selected' : '' }}>Inactivo</option>
                 </select>
             </div>
 
             <div class="form-group">
-        <label for="red_de_conocimiento">Red de Conocimiento:</label>
-        
-        <select name="red_de_conocimiento" id="red_de_conocimiento">
-            <option value="1">Red de Tik</option>
-            <option value="2">Red de Tok</option>
-        </select>
-    </div>
+                <label for="red_de_conocimiento">Red de Conocimiento:</label>
+                <select name="red_de_conocimiento" id="red_de_conocimiento">
+                    <option value="1">Red de Tik</option>
+                    <option value="2">Red de Tok</option>
+                </select>
+            </div>
+
             <button type="submit" class="btn btn-primary">Crear Ambiente</button>
         </form>
     </div>
+</div>
 @endsection

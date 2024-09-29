@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
-
 @section('titulo', 'Editar Ambiente')
 
 @section('contenido')
-<a href="{{ route('ambientes.index') }}" class="btn btn-primary mb-3">Volver a Ambientes</a>
+
 <div class="contenedor-principal">
     <section class="contenedor-secundario">
-        <div class="titulo-contenedor">
-            <h1>Editar Ambiente</h1>
-        </div>
+  
         <form action="{{ route('ambientes.update', $ambiente->id) }}" method="POST">
             @csrf
             @method('PUT')

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo', 'AmbiGestion')</title>
 
+ 
     <!-- Fuentes de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -17,19 +18,33 @@
 
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/formularios.css') }}">
     <!-- Sección para incluir estilos adicionales en vistas específicas -->
     @yield('estilos')
 </head>
 <body>
 
 <header class="barra-navegacion">
-    <button id="alternarBarraLateral" class="btn btn-light">☰</button>
+    <div>
+        <!-- Botón para alternar la barra lateral -->
+        <button id="alternarBarraLateral" class="btn btn-light">☰</button>
+
+        <!-- Botón para volver atrás -->
+        <button class="btn btn-light" onclick="goBack()" aria-label="Volver atrás">
+            <i class="bi bi-arrow-left"></i> <!-- Flecha hacia atrás de Bootstrap Icons -->
+        </button>
+    </div>
+  
+
+    <!-- Título dinámico -->
     <div><h2>@yield('titulo', 'Mi título')</h2></div>
+
+    <!-- Menú de perfil -->
     <div class="dropdown" style="position: relative;">
         <button class="btn btn-light dropdown-toggle" type="button" id="menuPerfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="bi bi-person-circle"></i>
         </button>
+        
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuPerfil">
             <a class="dropdown-item" href="{{ route('settings.index') }}">Ajustes</a>
             <div class="dropdown-divider"></div>
@@ -40,6 +55,7 @@
         </div>
     </div>
 </header>
+
 
 <!-- Barra lateral -->
 <div class="barra-lateral" id="barraLateral">
@@ -73,11 +89,42 @@
         const contenido = document.getElementById('contenido');
         const barraNavegacion = document.querySelector('.barra-navegacion');
         
+        // Alternar clases minimizadas
         barraLateral.classList.toggle('minimizada');
         contenido.classList.toggle('minimizado');
         barraNavegacion.classList.toggle('minimizada');
+
+        // Guardar el estado en localStorage
+        if (barraLateral.classList.contains('minimizada')) {
+            localStorage.setItem('barraMinimizada', 'true');
+        } else {
+            localStorage.setItem('barraMinimizada', 'false');
+        }
     });
+
+    // Al cargar la página, comprobar el estado guardado
+    window.addEventListener('load', function() {
+        const barraLateral = document.getElementById('barraLateral');
+        const contenido = document.getElementById('contenido');
+        const barraNavegacion = document.querySelector('.barra-navegacion');
+        
+        const barraMinimizada = localStorage.getItem('barraMinimizada');
+        if (barraMinimizada === 'true') {
+            barraLateral.classList.add('minimizada');
+            contenido.classList.add('minimizado');
+            barraNavegacion.classList.add('minimizada');
+        } else {
+            barraLateral.classList.remove('minimizada');
+            contenido.classList.remove('minimizado');
+            barraNavegacion.classList.remove('minimizada');
+        }
+    });
+
+    function goBack() {
+        window.history.back();
+    }
 </script>
+
 
 <!-- Sección para incluir scripts adicionales en vistas específicas -->
 @yield('scripts')

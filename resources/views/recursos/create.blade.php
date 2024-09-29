@@ -1,17 +1,12 @@
 @extends('layouts.app')
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
+
 @section('titulo', 'Crear Recurso')
 
 @section('contenido')
-<a href="{{ route(name: 'recursos.index') }}" class="btn btn-primary mb-3">Volver a Recursos</a>
+
 
 <div class="contenedor-principal">
     <div class="contenedor-secundario">
-        <div class="titulo-contenedor">
-            <h1>Crear Recurso</h1>
-        </div>
         <form action="{{ route('recursos.store') }}" method="POST">
             @csrf
 

@@ -3,15 +3,9 @@
 @section('titulo', 'Editar Recurso')
 
 @section('contenido')
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
-<a href="{{ route(name: 'recursos.index') }}" class="btn btn-primary mb-3">Volver a Recursos</a>
+
 <div class="contenedor-principal">
     <div class="contenedor-secundario">
-        <div class="titulo-contenedor">
-            <h1>Editar Recurso</h1>
-        </div>
         <form action="{{ route('recursos.update', $recurso->id_recurso) }}" method="POST">
             @csrf
             @method('PUT')

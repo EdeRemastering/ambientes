@@ -3,15 +3,10 @@
 @section('titulo', 'Editar Novedad')
 
 @section('contenido')
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
-<a href="{{ route('novedades.index') }}" class="btn btn-primary mb-3">Volver a Novedades</a>
+
 <div class="contenedor-principal">
     <div class="contenedor-secundario">
-        <div class="titulo-contenedor">
-            <h1>Editar Novedad</h1>
-        </div>
+
         <form action="{{ route('novedades.update', $novedad->id) }}" method="POST">
             @csrf
             @method('PUT')

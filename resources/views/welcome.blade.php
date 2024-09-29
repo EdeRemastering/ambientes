@@ -3,11 +3,10 @@
 @section('titulo', 'Inicio')
 
 @section('contenido')
-    <div class="principal-content">
-        <div class="opcion">
-            Bienvenido a AmbiGestion
-        </div>
-    </div>
+    
+        <h1>Bienvenido a AmbiGestion</h1>
+          
+     
 @endsection
 
        
@@ -18,6 +17,3 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 @endsection
-
-</body>
-</html>

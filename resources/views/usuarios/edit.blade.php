@@ -2,14 +2,10 @@
 
 @extends('layouts.app')
 
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
-@section('titulo', 'Usuarios')
+
+@section('titulo', 'Editar Usuarios')
 
 @section('contenido')
-<a href="{{ route(name: 'usuarios.index') }}" class="btn btn-primary mb-3">Volver a Usuarios</a>
-
 <div class="contenedor-principal">
         
         <section class="contenedor-secundario">

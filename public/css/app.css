@@ -39,6 +39,7 @@ table {
     border-top: none !important;
 }
 
+
 thead {
     border-top: none !important;
 }
@@ -102,7 +103,7 @@ thead {
     padding: 1rem;
     width: calc(100vw - 250px);
     background-color: #f8f9fa;
-    height: calc(100vh - 80px);
+    height: 100vh;
     transition: all 0.3s;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
 }
@@ -143,7 +144,7 @@ thead {
     background-color: #45a049;
 }
 
-.boton-crear {
+.boton-crear .btn{
     background-color: #203a43;
     border: 2px solid #4CAF50;
 }

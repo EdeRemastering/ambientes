@@ -3,16 +3,10 @@
 @section('titulo', 'Crear Novedad')
 
 @section('contenido')
-@section('estilos')
-<link rel="stylesheet" href="{{ asset('css/editar.css') }}">
-@endsection
-<a href="{{ route('novedades.index') }}" class="btn btn-primary mb-3">Volver a Novedades</a>
+
 <div class="contenedor-principal">
 
     <div class="contenedor-secundario">
-        <div class="titulo-contenedor">
-            <h1>Crear Novedad</h1>
-        </div>
         <form action="{{ route('novedades.store') }}" method="POST">
             @csrf
 
