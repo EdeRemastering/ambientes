@@ -4,7 +4,7 @@
 
 @section('contenido')
     
-        <h1>Bienvenido a AmbiGestion</h1>
+        <h1>Bienvenido a AmbiGestión</h1>
           
      
 @endsection
