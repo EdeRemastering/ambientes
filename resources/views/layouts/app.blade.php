@@ -46,15 +46,16 @@
 
     <!-- Título dinámico -->
     <div><h2>@yield('titulo', 'Mi título')</h2></div>
-
+    
     <!-- Menú de perfil -->
     <div class="dropdown" style="position: relative;">
         <button class="btn btn-light dropdown-toggle" type="button" id="menuPerfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="bi bi-person-circle"></i>
         </button>
-        
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menuPerfil">
             <a class="dropdown-item" href="{{ route('settings.index') }}">Ajustes</a>
+            <div class="dropdown-divider"></div>
+            <button id="modoOscuroToggle" class="dropdown-item">Cambiar Modo</button>
             <div class="dropdown-divider"></div>
             <form action="{{ route('auth.logout') }}" method="POST" style="display:inline;">
                 @csrf
@@ -142,6 +143,45 @@
     function goBack() {
         window.history.back();
     }
+
+   // Al hacer clic en el botón, alternamos el tema oscuro
+document.getElementById('modoOscuroToggle').addEventListener('click', function() {
+    // Alterna la clase 'modo-oscuro' en el cuerpo
+    document.body.classList.toggle('modo-oscuro');
+
+    // Determina si el tema oscuro está activo o no
+    let theme = document.body.classList.contains('modo-oscuro') ? 'dark' : 'light';
+
+    // Guarda el tema seleccionado en localStorage
+    localStorage.setItem('theme', theme);
+
+    // Verifica si el almacenamiento local ha sido actualizado correctamente
+    console.log("Tema guardado:", theme);
+});
+
+// Función para aplicar el tema guardado
+function applyTheme(theme) {
+    if (theme === 'dark') {
+        document.body.classList.add('modo-oscuro');
+    } else {
+        document.body.classList.remove('modo-oscuro');
+    }
+}
+
+// Leer el tema desde localStorage cuando se carga la página
+const savedTheme = localStorage.getItem('theme');
+
+// Verifica si hay un tema guardado y lo aplica, si no, aplica tema por defecto (claro)
+if (savedTheme) {
+    applyTheme(savedTheme);
+} else {
+    applyTheme('light');
+}
+
+// Verifica si el tema se ha aplicado correctamente al cargar la página
+console.log("Tema aplicado al cargar:", savedTheme || 'light');
+
+
 </script>
 
 

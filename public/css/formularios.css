@@ -7,7 +7,7 @@
     margin: 0;
     width: 100%;
     min-height: 100vh; /* Ocupa al menos el alto de la pantalla */
-  
+    background-color: #f8f9fa; /* Color de fondo */
 }
 
 /* Contenedor que ajusta el formulario a diferentes pantallas */
@@ -16,11 +16,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff; /* Fondo blanco */
     padding: 30px;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 800px; /* Máximo ancho */
     min-height: 400px; /* Altura mínima */
@@ -41,7 +40,7 @@ form {
 
 /* Ajustar mejor los inputs y evitar que se deformen */
 label {
-    color: #fff;
+    color: #333; /* Color del texto ajustado para fondo blanco */
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
@@ -51,9 +50,9 @@ input, textarea, select, .btn-primary {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
+    border: 1px solid #ced4da; /* Bordes neutros */
+    background-color: #f8f9fa;
+    color: #333; /* Color del texto ajustado para contraste */
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
@@ -63,12 +62,13 @@ input, textarea, select, .btn-primary {
 
 input::placeholder,
 textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: #6c757d; /* Color de placeholder ajustado para visibilidad */
 }
 
 /* Botón */
 .btn-primary {
-    background-color: #4CAF50;
+    background-color: #28a745; /* Color verde success */
+    color: white;
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 16px;
@@ -80,14 +80,13 @@ textarea::placeholder {
 }
 
 .btn-primary:hover {
-    background-color: #45a049;
+    background-color: #218838; /* Color más oscuro en hover */
 }
-
 
 /* Estilo personalizado para el select */
 select {
     appearance: none;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJ3aGl0ZSIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDI0IDEwIiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMmwxMSAxMUwyMyAybC0yLTEtMTEgMTEtMTEtMTF6Ii8+PC9zdmc+');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjhhNzQ1IiBoZWlnaHQ9IjEwIiB2aWV3Qm94PSIwIDAgMjQgMTAiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSAyTDExIDEzTDIzIDJMMjIgMUwxMSAxMUwxIDEgeiIvPjwvc3ZnPg==');
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px;
@@ -97,12 +96,12 @@ select {
 
 select:focus {
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5); /* Resalta en verde */
 }
 
 select option {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #000;
+    background-color: #ffffff;
+    color: #333; /* Texto de las opciones en negro */
 }
 
 /* Textareas ocupan ambas columnas */
@@ -138,12 +137,54 @@ form > * {
     flex-shrink: 0;
 }
 
-
-a .btn{
-    background-color: #203a43;
-    border: 2px solid #4CAF50;
+a .btn {
+    background-color: #28a745; /* Verde success */
+    border: 2px solid #28a745;
+    color: white;
 }
 
 a:hover {
-    background-color: #2c5364;
+    background-color: #218838; /* Hover en verde oscuro */
 }
+
+/* Formulario - Modo Claro (por defecto) ya está definido en el CSS actual */
+
+/* Modo Oscuro */
+.modo-oscuro .contenedor-principal {
+    background-color: #333; /* Fondo oscuro */
+    color: #f8f9fa; /* Texto claro */
+}
+
+.modo-oscuro .contenedor-secundario {
+    background-color: #444; /* Fondo oscuro en el formulario */
+    color: #f8f9fa; /* Texto claro */
+    border-color: #555; /* Bordes oscuros */
+}
+
+.modo-oscuro label {
+    color: #f8f9fa; /* Color del texto en oscuro */
+}
+
+.modo-oscuro input, 
+.modo-oscuro textarea, 
+.modo-oscuro select {
+    background-color: #555; /* Fondo oscuro en los campos */
+    color: #f8f9fa; /* Texto claro */
+    border: 1px solid #666; /* Bordes en modo oscuro */
+}
+
+.modo-oscuro input::placeholder, 
+.modo-oscuro textarea::placeholder {
+    color: #999; /* Color del placeholder en oscuro */
+}
+
+.modo-oscuro .btn-primary {
+    background-color: #28a745; /* Botón primario en verde */
+    color: white;
+    border-color: #218838; /* Borde del botón */
+}
+
+.modo-oscuro .btn-primary:hover {
+    background-color: #218838; /* Hover más oscuro */
+}
+
