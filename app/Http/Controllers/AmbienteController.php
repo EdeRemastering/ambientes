@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Models\Ambiente;
 
 use Illuminate\Http\Request;
@@ -12,8 +13,21 @@ class AmbienteController extends Controller
      */
     public function index()
     {
-        $ambientes = Ambiente::All();
-        return view('ambientes.index', compact('ambientes'));
+        $ambientes = DB::table('ambientes')
+        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
+        ->join('red_de_formacion', 'ambientes.red_de_conocimiento', '=', 'red_de_formacion.id_area_formacion')
+        ->select(
+            'ambientes.id',
+            'ambientes.numero',
+            'ambientes.alias',
+            'ambientes.capacidad',
+            'ambientes.descripcion',
+            'ambientes.tipo',
+            'estado_ambiente.nombre AS estado_ambiente', // Nombre del estado
+            'red_de_formacion.nombre AS nombre_red_de_conocimiento' // Nombre de la red de formación
+        )
+        ->get();
+        return view('ambientes.index', compact('ambientes'));   
     }
 
     /**
@@ -64,7 +78,9 @@ class AmbienteController extends Controller
     public function edit(string $id)
     {
         $ambiente = Ambiente::findOrFail($id);
-        return view('ambientes.edit', compact('ambiente'));
+        $estados = DB::table('estado_ambiente')->select('id', 'nombre')->get();
+        $redes_de_conocimiento = DB::table('red_de_formacion')->select('id_area_formacion', 'nombre')->get();
+        return view('ambientes.edit', compact('ambiente', 'estados', 'redes_de_conocimiento'));
     }
 
     /**

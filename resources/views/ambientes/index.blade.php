@@ -31,8 +31,8 @@
             <td>{{ $ambiente->capacidad }}</td>
             <td>{{ $ambiente->descripcion }}</td>
             <td>{{ $ambiente->tipo }}</td>
-            <td>{{ $ambiente->estado }}</td>
-            <td>{{ $ambiente->red_de_conocimiento }}</td>
+            <td>{{ $ambiente->estado_ambiente }}</td>
+            <td>{{ $ambiente->nombre_red_de_conocimiento }}</td>
             <td>
                 <a href="{{ route('ambientes.edit', $ambiente->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
                 <form action="{{ route('ambientes.destroy', $ambiente->id) }}" method="POST" style="display:inline;">
