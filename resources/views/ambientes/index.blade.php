@@ -6,6 +6,7 @@
 <!-- Enlace para crear un nuevo ambiente -->
 <a href="{{ route('ambientes.create') }}" class="btn boton-crear btn-success mb-3">Crear Ambiente</a>
 
+
 <!-- Tabla de ambientes -->
 <table id="ambienteTable" class="table table-striped " style="width:100%">
     <thead>
@@ -56,7 +57,7 @@
             lengthChange: false,
             pageLength: 5,
             language: {
-                url: '//cdn.datatables.net/plug-ins/2.1.7/i18n/es-MX.json'
+                  url: '//cdn.datatables.net/plug-ins/2.1.7/i18n/es-MX.json'
             }
         });
     });

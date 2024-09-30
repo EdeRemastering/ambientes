@@ -32,12 +32,18 @@ class NovedadController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'estado_novedad' => 'required|in:activo,inactivo',
-            'fecha_solucion' => 'nullable|date'
+            'estado_novedad' => 'required|integer',
+            'fecha_solucion' => 'nullable|datetime'
         ]);
 
-        Novedad::create($request->all());
-        return redirect()->route('novedades.index')->with('success', 'Novedad creada exitosamente.');
+
+        try {
+            Novedad::create($request->all());
+            return redirect()->route('novedades.index')->with('success', 'Novedad creada exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al crear la novedad.' . $e->getMessage());
+        }
+      
     }
 
     /**
@@ -65,13 +71,18 @@ class NovedadController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'estado_novedad' => 'required|in:activo,inactivo',
+            'estado_novedad' => 'required|integer',
             'fecha_solucion' => 'nullable|date'
         ]);
 
-        $novedad = Novedad::findOrFail($id);
-        $novedad->update($request->all());
-        return redirect()->route('novedades.index')->with('success', 'Novedad actualizada exitosamente.');
+        try {
+            $novedad = Novedad::findOrFail($id);
+            $novedad->update($request->all());
+            return redirect()->route('novedades.index')->with('success', 'Novedad actualizada exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al actualizar la novedad.' . $e->getMessage());
+        }
+      
     }
 
     /**
@@ -79,8 +90,13 @@ class NovedadController extends Controller
      */
     public function destroy($id)
     {
-        $novedad = Novedad::findOrFail($id);
-        $novedad->delete();
-        return redirect()->route('novedades.index')->with('success', 'Novedad eliminada exitosamente.');
+        try {
+            $novedad = Novedad::findOrFail($id);
+            $novedad->delete();
+            return redirect()->route('novedades.index')->with('success', 'Novedad eliminada exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al eliminar la novedad.' . $e->getMessage());
+        }
+      
     }
 }
