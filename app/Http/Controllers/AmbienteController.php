@@ -35,7 +35,9 @@ class AmbienteController extends Controller
      */
     public function create()
     {
-        return view('ambientes.create');
+        $estados = DB::table('estado_ambiente')->select('id', 'nombre')->get();
+        $redes_de_conocimiento = DB::table('red_de_formacion')->select('id_area_formacion', 'nombre')->get();
+        return view('ambientes.create', compact('estados', 'redes_de_conocimiento'));
     }
 
     /**

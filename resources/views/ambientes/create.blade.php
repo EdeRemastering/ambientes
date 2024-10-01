@@ -51,17 +51,19 @@
 
             <div class="form-group">
                 <label for="estado">Estado:</label>
-                <select name="estado" id="estado" class="form-control">
-                    <option value="1" {{ old('estado') == '1' ? 'selected' : '' }}>Activo</option>
-                    <option value="2" {{ old('estado') == '2' ? 'selected' : '' }}>Inactivo</option>
+                <select name="estado" id="estado">
+                    @foreach ($estados as $estado)
+                    <option value="{{ $estado->id }}" {{ old('nombre', $estado->nombre) }}>{{ $estado->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="red_de_conocimiento">Red de Conocimiento:</label>
                 <select name="red_de_conocimiento" id="red_de_conocimiento">
-                    <option value="1">Red de Tik</option>
-                    <option value="2">Red de Tok</option>
+                    @foreach ($redes_de_conocimiento as $red_de_conocimiento)
+                        <option value="{{ $red_de_conocimiento->id_area_formacion}}" {{ old('nombre', $red_de_conocimiento->nombre)}}>{{ $red_de_conocimiento->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
 

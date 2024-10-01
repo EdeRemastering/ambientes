@@ -21,9 +21,9 @@
     border-radius: 10px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px; /* Máximo ancho */
+    max-width: fit-content; /* Máximo ancho */
     min-height: 400px; /* Altura mínima */
-    max-height: 90vh; /* No sobrepasar el 90% del viewport */
+    max-height: fit-content; /* No sobrepasar el 90% del viewport */
     overflow: hidden; /* Evitar desbordamiento */
     overflow-y: auto; /* Scroll solo vertical si es necesario */
     box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */

@@ -63,7 +63,7 @@ thead {
 .barra-lateral h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-weight: 600;
+    font-weight: bolder;
     font-size: 1.2rem;
 }
 
@@ -79,10 +79,12 @@ thead {
 .barra-lateral a i {
     font-size: 20px;
     margin-right: 10px;
+    border-radius: 2rem;
 }
 
 .barra-lateral a:hover {
     background-color: #cecbcb;
+    border-radius: 2rem;
 }
 
 .barra-lateral .texto-barra-lateral {
@@ -112,7 +114,7 @@ thead {
 
 .barra-navegacion {
     background-color: white;
-    color: #28a745;
+    color: #222;
     margin-left: 200px;
     height: 60px;
     padding: 1rem;
@@ -121,6 +123,10 @@ thead {
     align-items: center;
     border-bottom: 1px solid #e0e0e0;
     transition: margin-left 0.3s;
+}
+
+.barra-navegacion h2 {
+    font-weight: 600;
 }
 
 .barra-navegacion.minimizada {

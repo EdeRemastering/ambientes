@@ -21,9 +21,9 @@
         @foreach ($recursos as $recurso)
         <tr>
             <td>{{ $recurso->id_recurso }}</td>
-            <td>{{ $recurso->id_ambiente }}</td>
+            <td>{{ $recurso->alias_ambiente }}</td>
             <td>{{ $recurso->descripcion }}</td>
-            <td>{{ $recurso->estado }}</td>
+            <td>{{ $recurso->nombre_estado }}</td>
             <td>
                 <a href="{{ route('recursos.edit', $recurso->id_recurso) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
                 <form action="{{ route('recursos.destroy', $recurso->id_recurso) }}" method="POST" style="display:inline;">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Recurso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RecursoController extends Controller
 {
@@ -12,7 +13,18 @@ class RecursoController extends Controller
      */
     public function index()
     {
-        $recursos = Recurso::all();
+        $recursos = DB::table('recurso')
+        ->join('estado_recurso', 'recurso.estado', '=', 'estado_recurso.id')
+        ->join('ambientes', 'recurso.id_ambiente', '=', 'ambientes.id')
+        ->select(
+            'recurso.id_recurso',
+            'ambientes.alias AS alias_ambiente',
+            'recurso.descripcion',
+            'recurso.fecha_registro',
+            'estado_recurso.nombre AS nombre_estado'
+        )
+        ->get();
+        
         return view('recursos.index', compact('recursos'));
     }
 
@@ -58,7 +70,8 @@ class RecursoController extends Controller
     public function edit($id)
     {
         $recurso = Recurso::findOrFail($id);
-        return view('recursos.edit', compact('recurso'));
+        $estados = DB::table('estado_recurso')->select('id', 'nombre')->get();
+        return view('recursos.edit', compact('recurso', 'estados'));
     }
 
     /**
