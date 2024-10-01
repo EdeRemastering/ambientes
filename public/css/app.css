@@ -79,13 +79,21 @@ thead {
 .barra-lateral a i {
     font-size: 20px;
     margin-right: 10px;
-    border-radius: 2rem;
 }
 
+.opcion-barra-navegacion{
+    border-radius: 5px;
+}
 .barra-lateral a:hover {
     background-color: #cecbcb;
-    border-radius: 2rem;
+    border-radius: 5px;
 }
+
+
+.opcion-barra-navegacion.active {
+    border-left: 5px solid #28a745;
+}
+
 
 .barra-lateral .texto-barra-lateral {
     display: inline-block;

@@ -69,11 +69,11 @@
 <!-- Barra lateral -->
 <div class="barra-lateral" id="barraLateral">
     <h2><a href="{{ route('home') }}" class="texto-barra-lateral">AmbiGestion</a></h2>
-    <a href="{{ route('home') }}"><i class="bi bi-house"></i> <span class="texto-barra-lateral">Inicio</span></a>
-    <a href="{{ route('usuarios.index') }}"><i class="bi bi-people"></i> <span class="texto-barra-lateral">Gestión de usuarios</span></a>
-    <a href="{{ route('ambientes.index') }}"><i class="bi bi-building"></i> <span class="texto-barra-lateral">Gestión de ambientes</span></a>
-    <a href="{{ route('recursos.index') }}"><i class="bi bi-box"></i> <span class="texto-barra-lateral">Gestión de recursos</span></a>
-    <a href="{{ route('novedades.index') }}"><i class="bi bi-bell"></i> <span class="texto-barra-lateral">Gestión de novedades</span></a>
+    <a href="{{ route('home') }}" class="opcion-barra-navegacion {{ Request::is('home') ? 'active' : '' }}"><i class="bi bi-house"></i> <span class="texto-barra-lateral">Inicio</span></a>
+    <a href="{{ route('usuarios.index') }}" class="opcion-barra-navegacion {{ Request::is('usuarios*') ? 'active' : '' }}"><i class="bi bi-people"></i> <span class="texto-barra-lateral">Gestión de usuarios</span></a>
+    <a href="{{ route('ambientes.index') }}" class="opcion-barra-navegacion {{ Request::is('ambientes*') ? 'active' : '' }}"><i class="bi bi-building"></i> <span class="texto-barra-lateral">Gestión de ambientes</span></a>
+    <a href="{{ route('recursos.index') }}" class="opcion-barra-navegacion {{ Request::is('recursos*') ? 'active' : '' }}"><i class="bi bi-box"></i> <span class="texto-barra-lateral">Gestión de recursos</span></a>
+    <a href="{{ route('novedades.index') }}" class="opcion-barra-navegacion {{ Request::is('novedades*') ? 'active' : '' }}"><i class="bi bi-bell"></i> <span class="texto-barra-lateral">Gestión de novedades</span></a>
 </div>
 
 <!-- Contenido principal -->
