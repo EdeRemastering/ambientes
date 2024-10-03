@@ -12,7 +12,11 @@
 
             <div class="form-group mb-3">
                 <label for="id_ambiente">ID Ambiente:</label>
-                <input type="number" id="id_ambiente" name="id_ambiente" class="form-control" value="{{ $recurso->id_ambiente }}" required>
+                <select name="ambiente" id="ambiente">
+                    @foreach ($ambientes as $ambiente)
+                        <option value="{{ $ambiente->id }}" {{ old('alias', $ambiente->alias)}}>{{ $ambiente->alias }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group mb-3">
@@ -23,8 +27,9 @@
             <div class="form-group mb-3">
                 <label for="estado">Estado:</label>
                 <select id="estado" name="estado" class="form-control" required>
-                    <option value="1" {{ $recurso->estado == 'activo' ? 'selected' : '' }}>Activo</option>
-                    <option value="2" {{ $recurso->estado == 'inactivo' ? 'selected' : '' }}>Inactivo</option>
+                @foreach ($estados as $estado)
+                    <option value="{{ $estado->id }}" {{ old('nombre', $estado->nombre)}}>{{ $estado->nombre }}</option>
+                 @endforeach
                 </select>
             </div>
 

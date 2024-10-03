@@ -23,8 +23,9 @@
             <div class="form-group mb-3">
                 <label for="estado_novedad">Estado Novedad:</label>
                 <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                    <option value="1">Activo</option>
-                    <option value="2">Inactivo</option>
+                @foreach ($estados_novedad as $estado_novedad)
+                    <option value="{{ $estado_novedad->id}}">{{ $estado_novedad->nombre }}</option>
+                 @endforeach
                 </select>
             </div>
 

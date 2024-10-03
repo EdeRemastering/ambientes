@@ -24,8 +24,9 @@
             <div class="form-group mb-3">
                 <label for="estado_novedad">Estado Novedad:</label>
                 <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                    <option value="1" {{ $novedad->estado_novedad == '1' ? 'selected' : '' }}>Activo</option>
-                    <option value="2" {{ $novedad->estado_novedad == '2' ? 'selected' : '' }}>Inactivo</option>
+                @foreach ($estados_novedad as $estado_novedad)
+                    <option value="{{ $estado_novedad->id}}" {{ old('nombre', $estado_novedad->nombre)}}>{{ $estado_novedad->nombre }}</option>
+                 @endforeach
                 </select>
             </div>
 

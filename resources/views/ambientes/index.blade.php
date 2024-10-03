@@ -32,7 +32,7 @@
             <td>{{ $ambiente->alias }}</td>
             <td>{{ $ambiente->capacidad }}</td>
             <td>{{ $ambiente->descripcion }}</td>
-            <td>{{ $ambiente->tipo }}</td>
+            <td>{{ $ambiente->tipo_ambiente }}</td>
             <td>{{ $ambiente->estado_ambiente }}</td>
             <td>{{ $ambiente->nombre_red_de_conocimiento }}</td>
             <td>

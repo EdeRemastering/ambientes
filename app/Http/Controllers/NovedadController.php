@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Novedad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NovedadController extends Controller
 {
@@ -12,7 +13,17 @@ class NovedadController extends Controller
      */
     public function index()
     {
-        $novedades = Novedad::all();
+        $novedades = DB::table('novedad')
+        ->join('estado_novedad', 'novedad.estado_novedad', '=', 'estado_novedad.id')
+        ->select(
+            'novedad.id',
+            'novedad.nombre',
+            'novedad.descripcion',
+            'novedad.fecha_registro',
+            'estado_novedad.nombre AS nombre_estado_novedad',
+            'novedad.fecha_solucion'
+        )
+        ->get();
         return view('novedades.index', compact('novedades'));
     }
 
@@ -20,8 +31,9 @@ class NovedadController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        return view('novedades.create');
+    {   
+        $estados_novedad = DB::table('estado_novedad')->select('id', 'nombre')->get();
+        return view('novedades.create', compact('estados_novedad'));
     }
 
     /**
@@ -29,6 +41,8 @@ class NovedadController extends Controller
      */
     public function store(Request $request)
     {
+
+        try {
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
@@ -37,7 +51,7 @@ class NovedadController extends Controller
         ]);
 
 
-        try {
+
             Novedad::create($request->all());
             return redirect()->route('novedades.index')->with('success', 'Novedad creada exitosamente.');
         } catch (\Exception $e) {
@@ -60,7 +74,8 @@ class NovedadController extends Controller
     public function edit($id)
     {
         $novedad = Novedad::findOrFail($id);
-        return view('novedades.edit', compact('novedad'));
+        $estados_novedad = DB::table('estado_novedad')->select('id', 'nombre')->get();
+        return view('novedades.edit', compact('novedad', 'estados_novedad'));
     }
 
     /**
@@ -68,6 +83,8 @@ class NovedadController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        try {
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
@@ -75,7 +92,7 @@ class NovedadController extends Controller
             'fecha_solucion' => 'nullable|date'
         ]);
 
-        try {
+  
             $novedad = Novedad::findOrFail($id);
             $novedad->update($request->all());
             return redirect()->route('novedades.index')->with('success', 'Novedad actualizada exitosamente.');

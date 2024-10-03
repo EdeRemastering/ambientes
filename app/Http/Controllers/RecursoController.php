@@ -33,7 +33,9 @@ class RecursoController extends Controller
      */
     public function create()
     {
-        return view('recursos.create');
+        $ambientes = DB::table('ambientes')->select('id', 'alias')->get();
+        $estados = DB::table('estado_recurso')->select('id', 'nombre')->get();
+        return view('recursos.create', compact('estados', 'ambientes'));
     }
 
     /**
@@ -41,13 +43,15 @@ class RecursoController extends Controller
      */
     public function store(Request $request)
     {
+
+        try {
         $request->validate([
             'id_ambiente' => 'required|integer',
             'descripcion' => 'required|string',
             'estado' => 'required|integer'
         ]);
 
-        try {
+
             Recurso::create($request->all());
             return redirect()->route('recursos.index')->with('success', 'Recurso creado exitosamente.');
         } catch (\Exception $e) {
@@ -70,8 +74,9 @@ class RecursoController extends Controller
     public function edit($id)
     {
         $recurso = Recurso::findOrFail($id);
+        $ambientes = DB::table('ambientes')->select('id', 'alias')->get();
         $estados = DB::table('estado_recurso')->select('id', 'nombre')->get();
-        return view('recursos.edit', compact('recurso', 'estados'));
+        return view('recursos.edit', compact('recurso', 'estados', 'ambientes'));
     }
 
     /**
@@ -79,15 +84,15 @@ class RecursoController extends Controller
      */
     public function update(Request $request, $id)
     {
+        try {
         $request->validate([
             'id_ambiente' => 'required|integer',
             'descripcion' => 'required|string',
             'estado' => 'required|integer'
         ]);
+        
 
-        $recurso = Recurso::findOrFail($id);
-
-        try {
+            $recurso = Recurso::findOrFail($id);
             $recurso->update($request->all());
             return redirect()->route('recursos.index')->with('success', 'Recurso actualizado exitosamente.');
         } catch (\Exception $e) {
@@ -101,8 +106,10 @@ class RecursoController extends Controller
      */
     public function destroy($id)
     {
-        $recurso = Recurso::findOrFail($id);
+
         try {
+        $recurso = Recurso::findOrFail($id);
+      
             $recurso->delete();
             return redirect()->route('recursos.index')->with('success', 'Recurso eliminado exitosamente.');
         } catch (\Exception $e) {

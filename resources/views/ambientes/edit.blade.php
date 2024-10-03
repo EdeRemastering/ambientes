@@ -25,7 +25,9 @@
 
             <label for="tipo">Tipo:</label>
             <select name="tipo" id="tipo">
-                <option value="1" {{ old('tipo', $ambiente->tipo) == '1' ? 'selected' : '' }}>Tecnología</option>
+            @foreach ($tipos as $tipo)
+                <option value="{{ $tipo->id }}" {{ old('nombre', $tipo->nombre) }}>{{ $tipo->nombre }}</option>
+                @endforeach
             </select>
 
             <label for="estado">Estado:</label>

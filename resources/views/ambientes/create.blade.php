@@ -44,16 +44,17 @@
             <div class="form-group">
                 <label for="tipo">Tipo:</label>
                 <select name="tipo" id="tipo">
-                    <option value="1">Tecnología</option>
-                    <option value="2">Carnicería</option>
-                </select>
+                @foreach ($tipos as $tipo)
+                    <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                @endforeach
+            </select>
             </div>
 
             <div class="form-group">
                 <label for="estado">Estado:</label>
                 <select name="estado" id="estado">
                     @foreach ($estados as $estado)
-                    <option value="{{ $estado->id }}" {{ old('nombre', $estado->nombre) }}>{{ $estado->nombre }}</option>
+                    <option value="{{ $estado->id }}">{{ $estado->nombre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -62,7 +63,7 @@
                 <label for="red_de_conocimiento">Red de Conocimiento:</label>
                 <select name="red_de_conocimiento" id="red_de_conocimiento">
                     @foreach ($redes_de_conocimiento as $red_de_conocimiento)
-                        <option value="{{ $red_de_conocimiento->id_area_formacion}}" {{ old('nombre', $red_de_conocimiento->nombre)}}>{{ $red_de_conocimiento->nombre }}</option>
+                        <option value="{{ $red_de_conocimiento->id_area_formacion}}">{{ $red_de_conocimiento->nombre }}</option>
                     @endforeach
                 </select>
             </div>

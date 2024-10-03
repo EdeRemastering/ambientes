@@ -26,7 +26,7 @@
             <td>{{ $novedad->nombre }}</td>
             <td>{{ $novedad->descripcion }}</td>
             <td>{{ $novedad->fecha_registro }}</td>
-            <td>{{ $novedad->estado_novedad }}</td>
+            <td>{{ $novedad->nombre_estado_novedad }}</td>
             <td>{{ $novedad->fecha_solucion }}</td>
             <td>
                 <a href="{{ route('novedades.edit', $novedad->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
