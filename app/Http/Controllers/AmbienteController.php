@@ -27,7 +27,24 @@ class AmbienteController extends Controller
             'red_de_formacion.nombre AS nombre_red_de_conocimiento' // Nombre de la red de formación
         )
         ->get();
-        return view('ambientes.index', compact('ambientes'));   
+
+        $ambientesDesocupados = DB::table('ambientes')
+        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
+        ->where('estado_ambiente.nombre', '=', 'desocupado')
+        ->count();
+
+        $ambientesOcupados = DB::table('ambientes')
+        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
+        ->where('estado_ambiente.nombre', '=', 'ocupado')
+        ->count();
+
+        $ambientesFueraServicio = DB::table('ambientes')
+        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
+        ->where('estado_ambiente.nombre', '=', 'fuera_de_servicio')
+        ->count();
+        
+        
+        return view('ambientes.index', compact('ambientes', 'ambientesDesocupados', 'ambientesOcupados', 'ambientesFueraServicio'));   
     }
 
     /**
