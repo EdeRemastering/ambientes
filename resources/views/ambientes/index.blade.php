@@ -5,9 +5,11 @@
 @section('contenido')
 <!-- Enlace para crear un nuevo ambiente -->
 <a href="{{ route('ambientes.create') }}" class="btn boton-crear btn-success">Crear Ambiente</a>
-<a class="btn btn-success">Desocupados: {{$ambientesDesocupados}}</a>
+<a class="btn btn-success">Disponibles: {{$ambientesDisponibles}}</a>
 <a class="btn btn-success">Ocupados: {{$ambientesOcupados}}</a>
+<a class="btn btn-success">En mantenimiento: {{$ambientesEnMantenimiento}}</a>
 <a class="btn btn-success">Fuera de servicio: {{$ambientesFueraServicio}}</a>
+<a class="btn btn-success">Total: {{$ambientesTotal}}</a>
 
 <!-- Tabla de ambientes -->
 <table id="ambienteTable" class="table table-striped " style="width:100%">

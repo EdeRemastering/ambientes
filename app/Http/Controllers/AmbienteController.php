@@ -29,9 +29,9 @@ class AmbienteController extends Controller
         )
         ->get();
 
-        $ambientesDesocupados = DB::table('ambientes')
+        $ambientesDisponibles = DB::table('ambientes')
         ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
-        ->where('estado_ambiente.nombre', '=', 'desocupado')
+        ->where('estado_ambiente.nombre', '=', 'disponible')
         ->count();
 
         $ambientesOcupados = DB::table('ambientes')
@@ -39,13 +39,19 @@ class AmbienteController extends Controller
         ->where('estado_ambiente.nombre', '=', 'ocupado')
         ->count();
 
+        $ambientesEnMantenimiento = DB::table('ambientes')
+        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
+        ->where('estado_ambiente.nombre', '=', 'mantenimiento')
+        ->count();
+
         $ambientesFueraServicio = DB::table('ambientes')
         ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
         ->where('estado_ambiente.nombre', '=', 'fuera_de_servicio')
         ->count();
         
+        $ambientesTotal = DB::table('ambientes')->count();
         
-        return view('ambientes.index', compact('ambientes', 'ambientesDesocupados', 'ambientesOcupados', 'ambientesFueraServicio'));   
+        return view('ambientes.index', compact('ambientes', 'ambientesDisponibles', 'ambientesOcupados', 'ambientesFueraServicio', 'ambientesEnMantenimiento', 'ambientesTotal'));   
     }
 
     /**

@@ -80,10 +80,11 @@
 <section class="contenido" id="contenido">
     <div class="contenido-principal">
        @yield('contenido')
+
        @if(session('success'))
             <script>mensajeDeExito("{{session('success')}}");</script>
         @endif
-
+        
         @if(session('error'))
             <script>mensajeDeError("{{ session('error') }}");</script>
         @endif
@@ -91,6 +92,9 @@
         @if(session('warning'))
             <script>mensajeDeAdvertencia("{{ session('warning') }}");</script>
         @endif 
+
+
+
     </div>
 </section>
 

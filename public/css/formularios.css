@@ -154,21 +154,23 @@ a:hover {
     /* Estilos para el contenedor de la barra de búsqueda */
     .dataTables_filter {
         margin-top: -38px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;  
+        width: fit-content;
+        margin-left: auto;
     }
 
     /* Estilos para la etiqueta de búsqueda */
     .dataTables_filter label {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
         font-size: 16px;    
-        color: #00FA66;
+        color: #00AF66;
     }
 
     /* Estilos para el input de búsqueda */
     .dataTables_filter label input {
         width: 300px;
-        border: 1px solid #00FA66; /* Color base */
+        border: 1px solid #00AF66; /* Color base */
         border-radius: 5px;
         padding: 5px;
         font-size: 14px;
@@ -177,10 +179,10 @@ a:hover {
 
     /* Cambiar el color del borde y el fondo cuando el input está enfocado */
     .dataTables_filter label input:focus {
-        border-color: #00FA66;  /* Color base */
+        border-color: #00AF66;  /* Color base */
         background-color: #e6fff0; /* Color suave para el fondo */
         outline: none;
-        box-shadow: 0px 0px 5px rgba(0, 250, 102, 0.5); /* Sombra verde */
+        box-shadow: 0px 0px 5px rgba(2, 146, 60, 0.5); /* Sombra verde */
     }
 
 /* Formulario - Modo Claro (por defecto) ya está definido en el CSS actual */

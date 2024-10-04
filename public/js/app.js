@@ -4,7 +4,7 @@
             icon: 'success',
             title: 'Éxito',
             text: mensaje,
-            confirmButtonColor: '#00FA66',
+            confirmButtonColor: '#00AF66',
             confirmButtonText: 'Aceptar',
         });
     }
@@ -14,7 +14,7 @@
             icon: 'error',
             title: 'Error',
             text: mensaje,
-            confirmButtonColor: '#00FA66',
+            confirmButtonColor: '#00AF66',
             confirmButtonText: 'Aceptar',
         });
     }
@@ -24,7 +24,7 @@
             icon: 'warning',
             title: 'Advertencia',
             text: mensaje,
-            confirmButtonColor: '#00FA66',
+            confirmButtonColor: '#00AF66',
             confirmButtonText: 'Aceptar',
         });
     }
@@ -40,7 +40,7 @@
             title: 'Advertencia',
             text: mensaje,
             showCancelButton: true, // Muestra el botón de cancelar
-            confirmButtonColor: '#00FA66',
+            confirmButtonColor: '#00AF66',
             confirmButtonText: 'Aceptar',
             cancelButtonColor: '#d33',
             cancelButtonText: 'Cancelar',
@@ -52,5 +52,22 @@
         });
     }
 
-
+    function mensajeDetalleError(errores) {
+        let errorMessage = "";
+    
+        // Iterar sobre el array de errores en JavaScript
+        errores.forEach(error => {
+            errorMessage += error + "\n";
+        });
+    
+        // Mostrar la alerta con los errores
+        Swal.fire({
+            icon: 'error',
+            title: 'Por favor corrija los siguientes errores:',
+            text: errorMessage,
+            confirmButtonColor: '#d33',
+            confirmButtonText: 'Aceptar'
+        });
+    }
+    
 
