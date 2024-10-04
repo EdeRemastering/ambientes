@@ -37,10 +37,12 @@
             <td>{{ $ambiente->nombre_red_de_conocimiento }}</td>
             <td>
                 <a href="{{ route('ambientes.edit', $ambiente->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                <form action="{{ route('ambientes.destroy', $ambiente->id) }}" method="POST" style="display:inline;">
+                <form id="formularioEliminar-{{ $ambiente->id }}" action="{{ route('ambientes.destroy', $ambiente->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este ambiente?')"><i class="bi bi-trash3-fill"></i></button>
+                    <button type="submit" class="btn btn-danger btn-sm" onclick="mensajeDeEliminacion(event, '{{ $ambiente->id }}', '{{ $ambiente->alias }}', 'ambientes')">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
                 </form>
             </td>
         </tr>
@@ -63,5 +65,8 @@
             }
         });
     });
+
+    // Personaliza el contenedor de búsqueda
+    $('#ambienteTable_filter').addClass('custom-search');
 </script>
 @endsection

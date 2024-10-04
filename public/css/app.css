@@ -146,6 +146,10 @@ thead {
     margin-left: 60px;
 }
 
+.btn-success {
+    background-color: #00AF66 !important;
+}
+
 /* Modo claro (por defecto) ya está definido en el CSS actual */
 
 /* Modo oscuro */

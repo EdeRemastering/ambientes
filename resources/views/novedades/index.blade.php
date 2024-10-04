@@ -4,7 +4,7 @@
 
 @section('contenido')
 <!-- Enlace para crear una nueva novedad -->
-<a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success mb-3">Crear Novedad</a>
+<a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success">Crear Novedad</a>
 
 <!-- Tabla de novedades -->
 <table id="novedadTable" class="table table-striped" style="width:100%">
@@ -29,11 +29,13 @@
             <td>{{ $novedad->nombre_estado_novedad }}</td>
             <td>{{ $novedad->fecha_solucion }}</td>
             <td>
-                <a href="{{ route('novedades.edit', $novedad->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                <form action="{{ route('novedades.destroy', $novedad->id) }}" method="POST" style="display:inline;">
+            <a href="{{ route('novedades.edit', $novedad->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
+                <form id="formularioEliminar-{{ $novedad->id }}" action="{{ route('novedades.destroy', $novedad->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar esta novedad?')"><i class="bi bi-trash3-fill"></i></button>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="mensajeDeEliminacion(event, '{{ $novedad->id }}', '{{ $novedad->nombre }}', 'novedades')">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
                 </form>
             </td>
         </tr>
@@ -56,5 +58,8 @@
             }
         });
     });
+
+    // Personaliza el contenedor de búsqueda
+    $('#ambienteTable_filter').addClass('custom-search');
 </script>
 @endsection

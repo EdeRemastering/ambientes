@@ -22,10 +22,12 @@
             <td>{{ $usuario->email }}</td>
             <td>
                 <a href="{{ route('usuarios.edit', $usuario->id) }}" class="btn btn-success btn-sm"><i class="bi bi-pencil-fill"></i></a>
-                <form action="{{ route('usuarios.delete', $usuario->id) }}" method="POST" style="display:inline;">
+                <form id="formularioEliminar-{{$usuario->id}}" action="{{ route('usuarios.delete', $usuario->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este usuario?');"><i class="bi bi-trash3-fill"></i></button>
+                    <button type="submit" class="btn btn-danger btn-sm" id="delete" onclick="mensajeDeEliminacion(event, '{{ $usuario->id }}', '{{ $usuario->email }}', 'usuarios')">
+                        <i class="bi bi-trash3-fill"></i>
+                    </button>
                 </form>
             </td>
         </tr>
@@ -48,5 +50,8 @@
             }
         });
     });
+
+    // Personaliza el contenedor de búsqueda
+    $('#ambienteTable_filter').addClass('custom-search');
 </script>
 @endsection
