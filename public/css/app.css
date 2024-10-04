@@ -1,5 +1,5 @@
 *::selection {
-    background-color: #28a745;
+    background-color: #00AF66;
     color: #ffffff;
 }
 
@@ -20,18 +20,18 @@ table {
 
 .pagination .page-link {
     background-color: #ffffff;
-    color: #28a745;
-    border: 1px solid #28a745;
+    color: #00AF66;
+    border: 1px solid #00AF66;
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #00AF66;
+    border-color: #00AF66;
     color: white;
 }
 
 .pagination .page-item .page-link:hover {
-    background-color: #28a745;
+    background-color: #00AF66;
     color: white;
 }
 
@@ -45,7 +45,7 @@ table {
 }
 
 thead {
-    border-bottom: 2px solid #28a745 !important;
+    border-bottom: 2px solid #00AF66 !important;
 }
 
 .barra-lateral {
@@ -96,7 +96,7 @@ thead {
 
 
 .opcion-barra-navegacion.active {
-    border-left: 5px solid #28a745;
+    border-left: 5px solid #00AF66;
 }
 
 
