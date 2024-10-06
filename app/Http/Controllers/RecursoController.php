@@ -24,8 +24,18 @@ class RecursoController extends Controller
             'estado_recurso.nombre AS nombre_estado'
         )
         ->get();
+
+        $recursoPorEstado = DB::table('recurso')
+        ->select('estado', DB::raw('count(*) as total'))
+        ->groupBy('estado')
+        ->get();
+
+
+        $estados = DB::table('estado_recurso')->select('id', 'nombre')->get();
+
+        $recursosTotal = DB::table('recurso')->count();
         
-        return view('recursos.index', compact('recursos'));
+        return view('recursos.index', compact('recursos', 'estados', 'recursoPorEstado'));
     }
 
     /**

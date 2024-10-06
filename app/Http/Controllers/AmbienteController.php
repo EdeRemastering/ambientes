@@ -27,31 +27,23 @@ class AmbienteController extends Controller
             'estado_ambiente.nombre AS estado_ambiente', // Nombre del estado
             'red_de_formacion.nombre AS nombre_red_de_conocimiento' // Nombre de la red de formación
         )
-        ->get();
+        ->get();    
 
-        $ambientesDisponibles = DB::table('ambientes')
-        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
-        ->where('estado_ambiente.nombre', '=', 'disponible')
-        ->count();
+        // Obtener los estados y la cantidad de ambientes por estado
+        $ambientesPorEstado = DB::table('ambientes')
+            ->select('estado', DB::raw('count(*) as total'))
+            ->groupBy('estado')
+            ->get();
 
-        $ambientesOcupados = DB::table('ambientes')
-        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
-        ->where('estado_ambiente.nombre', '=', 'ocupado')
-        ->count();
+        // Obtener todos los estados de la tabla estado_ambiente
+        $estados = DB::table('estado_ambiente')->select('id', 'nombre')->get();
 
-        $ambientesEnMantenimiento = DB::table('ambientes')
-        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
-        ->where('estado_ambiente.nombre', '=', 'mantenimiento')
-        ->count();
-
-        $ambientesFueraServicio = DB::table('ambientes')
-        ->join('estado_ambiente', 'ambientes.estado', '=', 'estado_ambiente.id')
-        ->where('estado_ambiente.nombre', '=', 'fuera_de_servicio')
-        ->count();
-        
+        // Total de ambientes
         $ambientesTotal = DB::table('ambientes')->count();
-        
-        return view('ambientes.index', compact('ambientes', 'ambientesDisponibles', 'ambientesOcupados', 'ambientesFueraServicio', 'ambientesEnMantenimiento', 'ambientesTotal'));   
+
+        // Pasar los datos a la vista
+        return view('ambientes.index', compact('ambientes', 'ambientesPorEstado', 'estados', 'ambientesTotal'));
+    
     }
 
     /**

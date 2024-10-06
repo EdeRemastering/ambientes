@@ -153,7 +153,6 @@ a:hover {
 
     /* Estilos para el contenedor de la barra de búsqueda */
     .dataTables_filter {
-        margin-top: -38px;
         display: flex;
         align-items: center;
         justify-content: flex-end;  

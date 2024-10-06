@@ -167,7 +167,20 @@ thead {
     background-color: #00AF66 !important;
     border: none;
     color: white;
+    width: 190px;
+    margin-left: auto;
 }
+
+
+.seccionEstatus {
+    width: 100%;
+    display: inline-flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+
 /* Modo claro (por defecto) ya está definido en el CSS actual */
 
 /* Modo oscuro */

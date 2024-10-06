@@ -24,8 +24,20 @@ class NovedadController extends Controller
             'novedad.fecha_solucion'
         )
         ->get();
-        return view('novedades.index', compact('novedades'));
-    }
+        
+
+        $novedadesPorEstado = DB::table('novedades')
+        ->select('estado', DB::raw('count(*) as total'))
+        ->groupBy('estado')
+        ->get();
+
+        $estados = DB::table('estado_novedad')->select('id', 'nombre');
+
+        $novedadesTotal = DB::table('novedades')->count();
+
+        return view('novedades.index', compact('novedades', ));
+
+     }
 
     /**
      * Show the form for creating a new resource.

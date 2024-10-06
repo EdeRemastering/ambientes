@@ -3,8 +3,14 @@
 @section('titulo', 'Recursos')
 
 @section('contenido')
-<!-- Enlace para crear un nuevo recurso -->
-<a href="{{ route('recursos.create') }}" class="btn boton-crear btn-success">Crear Recurso</a>
+
+@section('estados')
+    
+    
+    <!-- Enlace para crear un nuevo recurso -->
+    <a href="{{ route('recursos.create') }}" class="btn boton-crear btn-success">Crear Recurso</a>
+
+@endsection
 
 <!-- Tabla de recursos -->
 <table id="recursoTable" class="table table-striped" style="width:100%">

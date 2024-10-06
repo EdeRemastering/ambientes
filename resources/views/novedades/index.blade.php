@@ -3,8 +3,11 @@
 @section('titulo', 'Novedades')
 
 @section('contenido')
-<!-- Enlace para crear una nueva novedad -->
+@section('estados')
+    <!-- Enlace para crear una nueva novedad -->
 <a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success">Crear Novedad</a>
+@endsection
+
 
 <!-- Tabla de novedades -->
 <table id="novedadTable" class="table table-striped" style="width:100%">
