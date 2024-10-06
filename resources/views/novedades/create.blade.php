@@ -21,13 +21,14 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="estado_novedad">Estado Novedad:</label>
-                <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                @foreach ($estados_novedad as $estado_novedad)
-                    <option value="{{ $estado_novedad->id}}">{{ $estado_novedad->nombre }}</option>
-                 @endforeach
+                <label for="estado">Estado Novedad:</label>
+                <select id="estado" name="estado" class="form-control" required>
+                    @foreach ($estados as $estado)
+                        <option value="{{ $estado->id}}">{{ $estado->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
+
 
             <button type="submit" class="btn btn-primary">Crear Novedad</button>
         </form>

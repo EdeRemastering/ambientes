@@ -5,6 +5,20 @@
 @section('contenido')
 @section('estados')
     <!-- Enlace para crear una nueva novedad -->
+@foreach ($estados as $estado)
+    @php
+        // Busca en la colección el primer registro donde el estado coincida con el ID del estado actual
+        $novedadesEnEstado = $novedadesPorEstado->firstWhere('estado', $estado->id);
+        
+        // Si encontró novedades en ese estado, usa el valor de total; si no, asigna 0
+        $cantidad = $novedadesEnEstado ? $novedadesEnEstado->total : 0;
+    @endphp
+    <a class="btn btn-success">
+        {{ ucfirst($estado->nombre) }}: {{ $cantidad }}
+    </a>
+@endforeach
+<a class="btn btn-success">Total: {{ $novedadesTotal }}</a>
+
 <a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success">Crear Novedad</a>
 @endsection
 

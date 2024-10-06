@@ -22,10 +22,10 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="estado_novedad">Estado Novedad:</label>
-                <select id="estado_novedad" name="estado_novedad" class="form-control" required>
-                @foreach ($estados_novedad as $estado_novedad)
-                    <option value="{{ $estado_novedad->id}}" {{ old('nombre', $estado_novedad->nombre)}}>{{ $estado_novedad->nombre }}</option>
+                <label for="estado">Estado Novedad:</label>
+                <select id="estado" name="estado" class="form-control" required>
+                @foreach ($estados as $estado)
+                    <option value="{{ $estado->id}}" {{ old('nombre', $estado->nombre)}}>{{ $estado->nombre }}</option>
                  @endforeach
                 </select>
             </div>

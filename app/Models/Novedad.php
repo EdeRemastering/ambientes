@@ -14,5 +14,5 @@ class Novedad extends Model
 
     public $timestamps = false;
 
-    protected $fillable = ['id', 'nombre', 'descripcion', 'estado_novedad', 'fecha_solucion'];
+    protected $fillable = ['id', 'nombre', 'descripcion', 'estado', 'fecha_solucion'];
 }

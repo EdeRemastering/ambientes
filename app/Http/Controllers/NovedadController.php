@@ -14,7 +14,7 @@ class NovedadController extends Controller
     public function index()
     {
         $novedades = DB::table('novedad')
-        ->join('estado_novedad', 'novedad.estado_novedad', '=', 'estado_novedad.id')
+        ->join('estado_novedad', 'novedad.estado', '=', 'estado_novedad.id')
         ->select(
             'novedad.id',
             'novedad.nombre',
@@ -26,16 +26,16 @@ class NovedadController extends Controller
         ->get();
         
 
-        $novedadesPorEstado = DB::table('novedades')
+        $novedadesPorEstado = DB::table('novedad')
         ->select('estado', DB::raw('count(*) as total'))
         ->groupBy('estado')
         ->get();
 
-        $estados = DB::table('estado_novedad')->select('id', 'nombre');
+        $estados = DB::table('estado_novedad')->select('id', 'nombre')->get();
 
-        $novedadesTotal = DB::table('novedades')->count();
+        $novedadesTotal = DB::table('novedad')->count();
 
-        return view('novedades.index', compact('novedades', ));
+        return view('novedades.index', compact('novedades', 'novedadesPorEstado', 'estados', 'novedadesTotal'));
 
      }
 
@@ -44,8 +44,9 @@ class NovedadController extends Controller
      */
     public function create()
     {   
-        $estados_novedad = DB::table('estado_novedad')->select('id', 'nombre')->get();
-        return view('novedades.create', compact('estados_novedad'));
+
+        $estados = DB::table('estado_novedad')->select('id', 'nombre')->get();
+        return view('novedades.create', compact('estados'));
     }
 
     /**
@@ -58,7 +59,7 @@ class NovedadController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'estado_novedad' => 'required|integer',
+            'estado' => 'required|integer',
             'fecha_solucion' => 'nullable|datetime'
         ]);
 
@@ -86,8 +87,8 @@ class NovedadController extends Controller
     public function edit($id)
     {
         $novedad = Novedad::findOrFail($id);
-        $estados_novedad = DB::table('estado_novedad')->select('id', 'nombre')->get();
-        return view('novedades.edit', compact('novedad', 'estados_novedad'));
+        $estados = DB::table('estado_novedad')->select('id', 'nombre')->get();
+        return view('novedades.edit', compact('novedad', 'estados'));
     }
 
     /**
@@ -100,7 +101,7 @@ class NovedadController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'estado_novedad' => 'required|integer',
+            'estado' => 'required|integer',
             'fecha_solucion' => 'nullable|date'
         ]);
 

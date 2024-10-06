@@ -6,7 +6,15 @@
 
 @section('estados')
     
-    
+    @foreach ($estados as $estado)
+        @php
+            $recursoEnEstado = $recursoPorEstado->firstWhere('estado', $estado->id);
+            $cantidad = $recursoEnEstado ? $recursoEnEstado->total : 0;
+        @endphp
+        <a class="btn btn-success">
+            {{ ucfirst($estado->nombre) }}: {{ $cantidad }}
+        </a>
+    @endforeach
     <!-- Enlace para crear un nuevo recurso -->
     <a href="{{ route('recursos.create') }}" class="btn boton-crear btn-success">Crear Recurso</a>
 
