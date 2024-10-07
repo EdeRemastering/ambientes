@@ -5,7 +5,7 @@
 @section('contenido')
 <a href="{{ route('usuarios.create') }}" id="boton-crear" class="btn btn-success">Crear Nuevo Usuario</a>
 
-<table id="userTable" class="table table-striped" style="width:100%">
+<table id="usuariosTable" class="table table-striped" style="width:100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -36,22 +36,3 @@
 </table>
 @endsection
 
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('#userTable').DataTable({
-            paging: true,
-            searching: true,
-            ordering: true,
-            lengthChange: false,
-            pageLength: 5,
-            language: {
-                 url: '//cdn.datatables.net/plug-ins/2.1.7/i18n/es-MX.json'
-            }
-        });
-    });
-
-    // Personaliza el contenedor de búsqueda
-    $('#ambienteTable_filter').addClass('custom-search');
-</script>
-@endsection

@@ -12,7 +12,7 @@
 
             <div class="form-group mb-3">
                 <label for="id_ambiente">Ambiente:</label>
-                <select name="ambiente" id="ambiente">
+                <select name="id_ambiente" id="ambiente">
                     @foreach ($ambientes as $ambiente)
                         <option value="{{ $ambiente->id}}">{{ $ambiente->alias }}</option>
                     @endforeach

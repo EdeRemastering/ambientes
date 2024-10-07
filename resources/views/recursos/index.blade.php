@@ -11,17 +11,18 @@
             $recursoEnEstado = $recursoPorEstado->firstWhere('estado', $estado->id);
             $cantidad = $recursoEnEstado ? $recursoEnEstado->total : 0;
         @endphp
-        <a class="btn btn-success">
+        <a class="btn btn-success botonEstado">
             {{ ucfirst($estado->nombre) }}: {{ $cantidad }}
         </a>
     @endforeach
+    <a class="btn btn-success botonEstadoTotal">Total: {{ $recursosTotal }}</a>
     <!-- Enlace para crear un nuevo recurso -->
     <a href="{{ route('recursos.create') }}" class="btn boton-crear btn-success">Crear Recurso</a>
 
 @endsection
 
 <!-- Tabla de recursos -->
-<table id="recursoTable" class="table table-striped" style="width:100%">
+<table id="recursosTable" class="table table-striped" style="width:100%">
     <thead>
         <tr>
             <th>ID Recurso</th>
@@ -54,22 +55,3 @@
 </table>
 @endsection
 
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('#recursoTable').DataTable({
-            paging: true,
-            searching: true,
-            ordering: true,
-            lengthChange: false,
-            pageLength: 5,
-            language: {
-                 url: '//cdn.datatables.net/plug-ins/2.1.7/i18n/es-MX.json'
-            }
-        });
-    });
-
-    // Personaliza el contenedor de búsqueda
-    $('#ambienteTable_filter').addClass('custom-search');
-</script>
-@endsection

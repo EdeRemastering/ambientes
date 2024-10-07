@@ -35,7 +35,7 @@ class RecursoController extends Controller
 
         $recursosTotal = DB::table('recurso')->count();
         
-        return view('recursos.index', compact('recursos', 'estados', 'recursoPorEstado'));
+        return view('recursos.index', compact('recursos', 'estados', 'recursoPorEstado', 'recursosTotal'));
     }
 
     /**

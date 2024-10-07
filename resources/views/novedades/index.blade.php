@@ -13,18 +13,18 @@
         // Si encontró novedades en ese estado, usa el valor de total; si no, asigna 0
         $cantidad = $novedadesEnEstado ? $novedadesEnEstado->total : 0;
     @endphp
-    <a class="btn btn-success">
+    <a class="btn btn-success botonEstado">
         {{ ucfirst($estado->nombre) }}: {{ $cantidad }}
     </a>
 @endforeach
-<a class="btn btn-success">Total: {{ $novedadesTotal }}</a>
+<a class="btn btn-success botonEstadoTotal">Total: {{ $novedadesTotal }}</a>
 
 <a href="{{ route('novedades.create') }}" class="btn boton-crear btn-success">Crear Novedad</a>
 @endsection
 
 
 <!-- Tabla de novedades -->
-<table id="novedadTable" class="table table-striped" style="width:100%">
+<table id="novedadesTable" class="table table-striped" style="width:100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -59,24 +59,4 @@
         @endforeach
     </tbody>
 </table>
-@endsection
-
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('#novedadTable').DataTable({
-            paging: true,
-            searching: true,
-            ordering: true,
-            lengthChange: false,
-            pageLength: 5,
-            language: {
-                url: '//cdn.datatables.net/plug-ins/2.1.7/i18n/es-MX.json'
-            }
-        });
-    });
-
-    // Personaliza el contenedor de búsqueda
-    $('#ambienteTable_filter').addClass('custom-search');
-</script>
 @endsection

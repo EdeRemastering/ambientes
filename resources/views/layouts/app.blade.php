@@ -24,8 +24,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
-
+  
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('modo-oscuro');
+            }
+        })();
+    </script>
 
     <!-- Sección para incluir estilos adicionales en vistas específicas -->
     @yield('estilos')
@@ -151,48 +159,20 @@
     function goBack() {
         window.history.back();
     }
+</script>
 
-   // Al hacer clic en el botón, alternamos el tema oscuro
-document.getElementById('modoOscuroToggle').addEventListener('click', function() {
-    // Alterna la clase 'modo-oscuro' en el cuerpo
-    document.body.classList.toggle('modo-oscuro');
-
-    // Determina si el tema oscuro está activo o no
-    let theme = document.body.classList.contains('modo-oscuro') ? 'dark' : 'light';
-
-    // Guarda el tema seleccionado en localStorage
-    localStorage.setItem('theme', theme);
-
-    // Verifica si el almacenamiento local ha sido actualizado correctamente
-    console.log("Tema guardado:", theme);
-});
-
-// Función para aplicar el tema guardado
-function applyTheme(theme) {
-    if (theme === 'dark') {
-        document.body.classList.add('modo-oscuro');
-    } else {
-        document.body.classList.remove('modo-oscuro');
-    }
-}
-
-// Leer el tema desde localStorage cuando se carga la página
-const savedTheme = localStorage.getItem('theme');
-
-// Verifica si hay un tema guardado y lo aplica, si no, aplica tema por defecto (claro)
-if (savedTheme) {
-    applyTheme(savedTheme);
-} else {
-    applyTheme('light');
-}
-
-// Verifica si el tema se ha aplicado correctamente al cargar la página
-console.log("Tema aplicado al cargar:", savedTheme || 'light');
-
-
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('modoOscuroToggle').addEventListener('click', function() {
+                document.documentElement.classList.toggle('modo-oscuro');
+                const theme = document.documentElement.classList.contains('modo-oscuro') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+            });
+        });
 </script>
 
 
+<script src="{{ asset('js/app.js') }}"></script>
 
 
 <!-- Sección para incluir scripts adicionales en vistas específicas -->
