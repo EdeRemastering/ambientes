@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!$.fn.DataTable.isDataTable(tablaID)) {
         // Si no está inicializada, inicialízala
         tabla = $(tablaID).DataTable({
+            scrollX: true, 
             paging: true,
             searching: true,
             ordering: true,

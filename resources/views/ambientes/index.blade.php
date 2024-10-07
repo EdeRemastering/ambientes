@@ -26,6 +26,8 @@
 
 
 <!-- Tabla de ambientes -->
+
+    
 <table id="ambientesTable" class="table table-striped " style="width:100%">
     <thead>
         <tr>
@@ -65,5 +67,6 @@
         @endforeach
     </tbody>
 </table>
+
 @endsection
 
