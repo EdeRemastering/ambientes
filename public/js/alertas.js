@@ -4,7 +4,7 @@ function mensajeDeExito(mensaje) {
         icon: 'success',
         title: 'Éxito',
         text: mensaje,
-        confirmButtonColor: '#00AF66',
+        confirmButtonColor: '#39A900',
         confirmButtonText: 'Aceptar',
     });
 }
@@ -14,7 +14,7 @@ function mensajeDeError(mensaje) {
         icon: 'error',
         title: 'Error',
         text: mensaje,
-        confirmButtonColor: '#00AF66',
+        confirmButtonColor: '#39A900',
         confirmButtonText: 'Aceptar',
     });
 }
@@ -24,7 +24,7 @@ function mensajeDeAdvertencia(mensaje) {
         icon: 'warning',
         title: 'Advertencia',
         text: mensaje,
-        confirmButtonColor: '#00AF66',
+        confirmButtonColor: '#39A900',
         confirmButtonText: 'Aceptar',
     });
 }
@@ -40,7 +40,7 @@ function mensajeDeEliminacion(event, idElemento, nombreElemento, seccionElemento
         title: 'Advertencia',
         text: mensaje,
         showCancelButton: true, // Muestra el botón de cancelar
-        confirmButtonColor: '#00AF66',
+        confirmButtonColor: '#39A900',
         confirmButtonText: 'Aceptar',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',

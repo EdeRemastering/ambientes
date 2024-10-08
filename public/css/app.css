@@ -1,57 +1,71 @@
-*::selection {
-    background-color: #39A900;
-    color: #ffffff;
+:root {
+    /* Variables de color */
+    --color-fondo: #f8f9fa;
+    --color-texto: #333;
+    --color-principal: #39A900;
+    --color-primario-claro: #007832;
+    --color-borde: #e0e0e0;
+    --color-fondo-oscuro: #333;
+    --color-texto-oscuro: #f8f9fa;
+    --color-borde-oscuro: #555;
+    --color-sombra-verde: rgba(2, 146, 60, 0.5);
+    --color-hover: #cecbcb;
 }
 
+/* Selección de texto */
+*::selection {
+    background-color: var(--color-principal);
+    color: var(--color-texto-oscuro);
+}
+
+/* Estilos del body */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-    transition: background-color 0.5s, color 0.5s; 
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    transition: background-color 0.5s, color 0.5s;
 }
 
-
+/* Estilos de las tablas */
 table {
     background-color: #ffffff;
     border-radius: 5px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--color-borde);
     color: #333 !important;
-
 }
 
+/* Estilos de la paginación */
 .pagination .page-link {
     margin-top: 10px;
     background-color: #ffffff;
-    color: #39A900;
-    border: 1px solid #39A900;
+    color: var(--color-principal);
+    border: 1px solid var(--color-principal);
 }
-
 .pagination .page-item.active .page-link {
-    background-color: #39A900;
-    border-color: #39A900;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
     color: white;
 }
-
 .pagination .page-item .page-link:hover {
-    background-color: #39A900;
+    background-color: var(--color-principal);
     color: white;
 }
 
+/* Estilos de la tabla con striping */
 .table.table-striped {
     border: none !important;
     box-shadow: none !important;
 }
-
 .table.table-striped th, .table.table-striped td {
-    border-top: 1px solid #e0e0e0 !important;
+    border-top: 1px solid var(--color-borde) !important;
 }
-
 thead {
-    border-bottom: 2px solid #39A900 !important;
+    border-bottom: 2px solid var(--color-principal) !important;
 }
 
+/* Estilos de la barra lateral */
 .barra-lateral {
     height: 100vh;
     width: 200px;
@@ -59,16 +73,14 @@ thead {
     top: 0;
     left: 0;
     background-color: white;
-    color: #333;
+    color: var(--color-texto);
     padding-top: 20px;
-    border-right: 1px solid #e0e0e0;
+    border-right: 1px solid var(--color-borde);
     transition: width 0.3s;
 }
-
 .barra-lateral.minimizada {
     width: 60px;
 }
-
 .barra-lateral h2 {
     text-align: center;
     margin-bottom: 20px;
@@ -76,59 +88,53 @@ thead {
     font-size: 1.2rem;
 }
 
+/* Estilos de los enlaces de la barra lateral */
 .barra-lateral a {
-    color: #333;
+    color: var(--color-texto);
     text-decoration: none;
     padding: 10px 15px;
     display: flex;
     align-items: center;
     transition: background-color 0.3s;
 }
-
 .barra-lateral a i {
     font-size: 20px;
     margin-right: 10px;
 }
-
-.opcion-barra-navegacion{
+.opcion-barra-navegacion {
     border-radius: 5px;
 }
 .barra-lateral a:hover {
-    background-color: #cecbcb;
+    background-color: var(--color-hover);
     border-radius: 5px;
 }
-
-
 .opcion-barra-navegacion.active {
-    border-left: 5px solid #39A900;
+    border-left: 5px solid var(--color-principal);
 }
-
-
 .barra-lateral .texto-barra-lateral {
     display: inline-block;
     transition: all 0.3s;
 }
-
 .minimizada .texto-barra-lateral {
     display: none;
 }
-
 .minimizada a {
     justify-content: center;
 }
 
+/* Estilos del contenido */
 .contenido {
     margin-left: 200px;
     padding: 1rem;
-    background-color: #f8f9fa;
+    background-color: var(--color-fondo);
     height: 100vh;
     transition: margin-left 0.3s, width 0.3s;
 }
-
 .contenido.minimizado {
     margin-left: 60px;
 }
 
+/* Estilos de la barra de navegación */
 .barra-navegacion {
     background-color: white;
     color: #222;
@@ -138,57 +144,49 @@ thead {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--color-borde);
     transition: margin-left 0.3s;
 }
-
 .barra-navegacion h2 {
     font-weight: 600;
 }
-
 .barra-navegacion.minimizada {
     margin-left: 60px;
 }
 
+/* Estilos de botones */
 .btn-success {
-    background-color: #39A900 !important;
+    background-color: var(--color-principal) !important;
     color: white;
     transition: .2s ease-in-out;
 }
-
 .btn-success:hover {
-    background-color: #007832;
+    background-color: var(--color-primario-claro);
 }
-
 .btn-success:active {
-    background-color:  #007832;
+    background-color: var(--color-primario-claro);
     color: white;
 }
-
 .btn-danger {
-    background-color: #f8f9fa !important;
-    color: #222;
+    color: white;
     transition: .2s ease-in-out;
 }
-
-
 .btn-danger:hover {
     box-shadow: inset 0 0 5px red;
     color: #222;
 }
-
 .btn-danger:active {
     box-shadow: inset 0 0 100px red;
 }
 .boton-crear {
-    background-color: #39A900 !important;
+    background-color: var(--color-principal) !important;
     border: none;
     color: white;
     width: 190px;
     margin-left: auto;
 }
 
-
+/* Estilos para sección de estatus */
 .seccionEstatus {
     width: 100%;
     display: inline-flex;
@@ -197,144 +195,93 @@ thead {
     flex-wrap: wrap;
 }
 
-/* Estilos para el contenedor de la barra de búsqueda */
+/* Estilos para la barra de búsqueda */
 .dataTables_filter {
     display: flex;
     align-items: center;
-    justify-content: flex-end;  
+    justify-content: flex-end;
     width: fit-content;
     margin-left: auto;
 }
-
-/* Estilos para la etiqueta de búsqueda */
 .dataTables_filter label {
-    font-size: 16px;    
-    color: #39A900;
+    font-size: 16px;
+    color: var(--color-principal);
 }
-
-/* Estilos para el input de búsqueda */
 .dataTables_filter label input {
     width: 300px;
-    border: 1px solid #39A900; /* Color base */
+    border: 1px solid var(--color-principal);
     border-radius: 5px;
     padding: 5px;
     font-size: 14px;
     transition: all 0.3s ease-in-out;
 }
-
-/* Cambiar el color del borde y el fondo cuando el input está enfocado */
 .dataTables_filter label input:focus {
-    border-color: #39A900;  /* Color base */
-    background-color: #e6fff0; /* Color suave para el fondo */
+    border-color: var(--color-principal);
+    background-color: #e6fff0;
     outline: none;
-    box-shadow: 0px 0px 5px rgba(2, 146, 60, 0.5); /* Sombra verde */
+    box-shadow: 0px 0px 5px var(--color-sombra-verde);
 }
-
 .dataTables_length {
     display: flex;
-    align-items: center;  
+    align-items: center;
     width: fit-content;
 }
-
-/* Estilo para el select de las opciones (por ejemplo, el menú desplegable de "10", "25", "50"...) */
 .dataTables_length select {
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: auto;
 }
-
 .dataTables_length select option {
-    background-color: #222;  /* Color de fondo de las opciones */
-    color: #fff;  /* Color del texto de las opciones */
+    background-color: #222;
+    color: #fff;
 }
-
-
-/* Modo claro (por defecto) ya está definido en el CSS actual */
 
 /* Modo oscuro */
 .modo-oscuro {
-    background-color: #333 !important;
-    color: #f8f9fa !important;
+    background-color: var(--color-fondo-oscuro) !important;
+    color: var(--color-texto-oscuro) !important;
 }
-
 .modo-oscuro .barra-lateral {
     background-color: #222;
     color: white;
 }
-
 .modo-oscuro .barra-lateral a {
     color: #f8f9fa;
 }
-
 .modo-oscuro .barra-lateral a:hover {
-    background-color: #333;
+    background-color: var(--color-fondo-oscuro);
 }
-
 .modo-oscuro .contenido {
-    background-color: #333;
+    background-color: var(--color-fondo-oscuro);
     color: white !important;
 }
-
 .modo-oscuro .barra-navegacion {
     background-color: #222;
     color: #f8f9fa;
     border-bottom: 1px solid #444;
 }
-
 .modo-oscuro table {
     background-color: #444;
     color: #f8f9fa !important;
-    border: 1px solid #555;
+    border: 1px solid var(--color-borde-oscuro);
 }
-
 .modo-oscuro thead {
-    border-bottom: 2px solid #555;
+    border-bottom: 2px solid var(--color-borde-oscuro);
 }
-
 .modo-oscuro .pagination .page-link {
     background-color: #444;
     color: #f8f9fa;
-    border: 1px solid #555;
+    border: 1px solid var(--color-borde-oscuro);
 }
-
 .modo-oscuro .pagination .page-item.active .page-link {
-    background-color: #555;
+    background-color: var(--color-borde-oscuro);
     color: #f8f9fa;
 }
-
 .modo-oscuro .btn-success {
-    background-color: #333 !important;
-    border: 1px solid #39A900 !important;
-    color: #f8f9fa;
+    background-color: var(--color-principal) !important;
+    color: var(--color-texto-oscuro);
     transition: .2s ease-in-out;
 }
-
 .modo-oscuro .btn-success:hover {
-    box-shadow: inset 0 0 10px #39A900;
-    color: #f8f9fa;
-}
-
-.modo-oscuro .btn-success:active {
-    box-shadow: inset 0 0 100px #39A900;
-    color: #f8f9fa;
-}
-
-.modo-oscuro .btn-danger {
-    background-color: #333 !important;
-    color: white;
-}
-
-.modo-oscuro .btn-danger:hover {
-    box-shadow: inset 0 0 10px red;
-    color: #f8f9fa;
-}
-
-.modo-oscuro .btn-danger:active {
-    box-shadow: inset 0 0 100px red;
-}
-
-.modo-oscuro .boton-crear {
-    background-color: #39A900 !important;
-    border: none;
-    color: white;
+    color: var(--color-texto-oscuro);
 }
