@@ -67,7 +67,7 @@ textarea::placeholder {
 
 /* Botón */
 .btn-primary {
-    background-color: #00AF66; /* Color verde success */
+    background-color: #39A900; /* Color verde success */
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -80,11 +80,11 @@ textarea::placeholder {
 }
 
 .btn-primary:hover {
-    background-color: #006d40; /* Color más oscuro en hover */
+    background-color: #007832; /* Color más oscuro en hover */
 }
 
 .btn-success {
-    background-color: #00AF66;
+    background-color: #39A900;
 }
 
 /* Estilo personalizado para el select */
@@ -142,13 +142,13 @@ form > * {
 }
 
 a .btn {
-    background-color: #00AF66; /* Verde success */
-    border: 2px solid #00AF66;
+    background-color: #39A900; /* Verde success */
+    border: 2px solid #39A900;
     color: white;
 }
 
 a:hover {
-    background-color: #006d40; /* Hover en verde oscuro */
+    background-color: #007832; /* Hover en verde oscuro */
 }
 
     
@@ -185,12 +185,12 @@ a:hover {
 }
 
 .modo-oscuro .btn-primary {
-    background-color: #00AF66; /* Botón primario en verde */
+    background-color: #39A900; /* Botón primario en verde */
     color: white;
-    border-color: #006d40; /* Borde del botón */
+    border-color: #007832; /* Borde del botón */
 }
 
 .modo-oscuro .btn-primary:hover {
-    background-color: #006d40; /* Hover más oscuro */
+    background-color: #007832; /* Hover más oscuro */
 }
 

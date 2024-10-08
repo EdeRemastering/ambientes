@@ -1,5 +1,5 @@
 *::selection {
-    background-color: #00AF66;
+    background-color: #39A900;
     color: #ffffff;
 }
 
@@ -24,18 +24,18 @@ table {
 .pagination .page-link {
     margin-top: 10px;
     background-color: #ffffff;
-    color: #00AF66;
-    border: 1px solid #00AF66;
+    color: #39A900;
+    border: 1px solid #39A900;
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #00AF66;
-    border-color: #00AF66;
+    background-color: #39A900;
+    border-color: #39A900;
     color: white;
 }
 
 .pagination .page-item .page-link:hover {
-    background-color: #00AF66;
+    background-color: #39A900;
     color: white;
 }
 
@@ -49,7 +49,7 @@ table {
 }
 
 thead {
-    border-bottom: 2px solid #00AF66 !important;
+    border-bottom: 2px solid #39A900 !important;
 }
 
 .barra-lateral {
@@ -100,7 +100,7 @@ thead {
 
 
 .opcion-barra-navegacion.active {
-    border-left: 5px solid #00AF66;
+    border-left: 5px solid #39A900;
 }
 
 
@@ -151,25 +151,22 @@ thead {
 }
 
 .btn-success {
-    background-color: #f8f9fa !important;
-    border: 1px solid #00AF66 !important;
-    color: #222;
+    background-color: #39A900 !important;
+    color: white;
     transition: .2s ease-in-out;
 }
 
 .btn-success:hover {
-    box-shadow: inset 0 0 3px #00AF66;
-    color: #222;
+    background-color: #007832;
 }
 
 .btn-success:active {
-    box-shadow: inset 0 0 100px #00AF66;
-    color: #222;
+    background-color:  #007832;
+    color: white;
 }
 
 .btn-danger {
     background-color: #f8f9fa !important;
-    border: 1px solid red !important;
     color: #222;
     transition: .2s ease-in-out;
 }
@@ -184,7 +181,7 @@ thead {
     box-shadow: inset 0 0 100px red;
 }
 .boton-crear {
-    background-color: #00AF66 !important;
+    background-color: #39A900 !important;
     border: none;
     color: white;
     width: 190px;
@@ -212,13 +209,13 @@ thead {
 /* Estilos para la etiqueta de búsqueda */
 .dataTables_filter label {
     font-size: 16px;    
-    color: #00AF66;
+    color: #39A900;
 }
 
 /* Estilos para el input de búsqueda */
 .dataTables_filter label input {
     width: 300px;
-    border: 1px solid #00AF66; /* Color base */
+    border: 1px solid #39A900; /* Color base */
     border-radius: 5px;
     padding: 5px;
     font-size: 14px;
@@ -227,7 +224,7 @@ thead {
 
 /* Cambiar el color del borde y el fondo cuando el input está enfocado */
 .dataTables_filter label input:focus {
-    border-color: #00AF66;  /* Color base */
+    border-color: #39A900;  /* Color base */
     background-color: #e6fff0; /* Color suave para el fondo */
     outline: none;
     box-shadow: 0px 0px 5px rgba(2, 146, 60, 0.5); /* Sombra verde */
@@ -307,18 +304,18 @@ thead {
 
 .modo-oscuro .btn-success {
     background-color: #333 !important;
-    border: 1px solid #00AF66 !important;
+    border: 1px solid #39A900 !important;
     color: #f8f9fa;
     transition: .2s ease-in-out;
 }
 
 .modo-oscuro .btn-success:hover {
-    box-shadow: inset 0 0 10px #00AF66;
+    box-shadow: inset 0 0 10px #39A900;
     color: #f8f9fa;
 }
 
 .modo-oscuro .btn-success:active {
-    box-shadow: inset 0 0 100px #00AF66;
+    box-shadow: inset 0 0 100px #39A900;
     color: #f8f9fa;
 }
 
@@ -337,7 +334,7 @@ thead {
 }
 
 .modo-oscuro .boton-crear {
-    background-color: #00AF66 !important;
+    background-color: #39A900 !important;
     border: none;
     color: white;
 }
